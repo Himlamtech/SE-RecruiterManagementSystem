@@ -1,91 +1,144 @@
 
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Menu, User, Briefcase } from 'lucide-react';
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
+import { Menu, X, User } from "lucide-react";
+import useIsMobile from "@/hooks/use-mobile";
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const isMobile = useIsMobile();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const isActive = (path: string) => {
+    return location.pathname === path;
+  };
+
+  const navItems = [
+    { name: "Trang chủ", path: "/" },
+    { name: "Việc làm", path: "/jobs" },
+    { name: "Công ty", path: "/companies" },
+    { name: "Blog", path: "/blog" },
+    { name: "Tạo CV", path: "/my-cv" },
+  ];
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 shadow-sm">
-      <div className="container mx-auto px-4 py-3">
-        <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <span className="text-2xl font-bold text-himlam-700 animate-fade-in">HimLam</span>
-          </Link>
+    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 shadow-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex h-16 items-center justify-between">
+          <div className="flex items-center">
+            <Link to="/" className="font-bold text-2xl text-himlam-600">
+              HimLam
+            </Link>
+          </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-6">
-            <Link to="/" className="nav-link">Trang chủ</Link>
-            <Link to="/jobs" className="nav-link">Việc làm</Link>
-            <Link to="/companies" className="nav-link">Công ty</Link>
-            <Link to="/blog" className="nav-link">Blog</Link>
-            <Link to="/my-cv" className="nav-link">CV của tôi</Link>
+          <nav className="hidden md:flex items-center space-x-6">
+            {navItems.map((item) => (
+              <Link
+                key={item.name}
+                to={item.path}
+                className={cn(
+                  "nav-link",
+                  isActive(item.path) && "text-himlam-600 after:scale-x-100"
+                )}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* User Actions */}
+          <div className="hidden md:flex items-center space-x-4">
+            <Link to="/login">
+              <Button variant="outline" className="border-himlam-300 hover:border-himlam-500">
+                Đăng nhập
+              </Button>
+            </Link>
+            <Link to="/login?tab=register">
+              <Button className="bg-himlam-500 hover:bg-himlam-600">
+                Đăng ký
+              </Button>
+            </Link>
           </div>
 
-          {/* Auth Buttons */}
-          <div className="hidden md:flex items-center space-x-2">
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="outline" className="border-himlam-300 hover:border-himlam-500">
-                  <User className="h-4 w-4 mr-2" />
-                  Đăng nhập
+          {/* Mobile Navigation Trigger */}
+          {isMobile && (
+            <Sheet open={isOpen} onOpenChange={setIsOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon">
+                  <Menu className="h-6 w-6" />
                 </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                <DropdownMenuItem>
-                  <Link to="/login" className="flex items-center">
-                    <User className="h-4 w-4 mr-2" />
-                    <span>Người dùng</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem>
-                  <Link to="/employer/login" className="flex items-center">
-                    <Briefcase className="h-4 w-4 mr-2" />
-                    <span>Nhà tuyển dụng</span>
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-            <Button className="bg-himlam-500 hover:bg-himlam-600 text-white">Đăng ký</Button>
-          </div>
+              </SheetTrigger>
+              <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                <div className="flex flex-col space-y-6 py-6">
+                  <div className="flex justify-between items-center">
+                    <Link to="/" className="font-bold text-2xl text-himlam-600" onClick={() => setIsOpen(false)}>
+                      HimLam
+                    </Link>
+                    <Button variant="ghost" size="icon" onClick={() => setIsOpen(false)}>
+                      <X className="h-6 w-6" />
+                    </Button>
+                  </div>
 
-          {/* Mobile Menu Button */}
-          <div className="md:hidden">
-            <Button
-              variant="ghost"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2"
-            >
-              <Menu className="h-6 w-6" />
-            </Button>
-          </div>
+                  <div className="space-y-4">
+                    {navItems.map((item) => (
+                      <Link
+                        key={item.name}
+                        to={item.path}
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "block py-2 text-lg",
+                          isActive(item.path)
+                            ? "text-himlam-600 font-medium"
+                            : "text-gray-600 hover:text-himlam-600"
+                        )}
+                      >
+                        {item.name}
+                      </Link>
+                    ))}
+                    
+                    <div className="border-t border-gray-100 pt-4 mt-4">
+                      <Link
+                        to="/profile"
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "block py-2 text-lg",
+                          isActive("/profile")
+                            ? "text-himlam-600 font-medium"
+                            : "text-gray-600 hover:text-himlam-600"
+                        )}
+                      >
+                        Hồ sơ cá nhân
+                      </Link>
+                    </div>
+
+                    <div className="pt-4 space-y-3">
+                      <Link to="/login" onClick={() => setIsOpen(false)}>
+                        <Button variant="outline" className="w-full border-himlam-300 hover:border-himlam-500">
+                          Đăng nhập
+                        </Button>
+                      </Link>
+                      <Link to="/login?tab=register" onClick={() => setIsOpen(false)}>
+                        <Button className="w-full bg-himlam-500 hover:bg-himlam-600">
+                          Đăng ký
+                        </Button>
+                      </Link>
+                    </div>
+                  </div>
+                </div>
+              </SheetContent>
+            </Sheet>
+          )}
         </div>
-
-        {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden mt-3 pb-3 space-y-2 animate-fade-in">
-            <Link to="/" className="block px-4 py-2 rounded-md hover:bg-himlam-50">Trang chủ</Link>
-            <Link to="/jobs" className="block px-4 py-2 rounded-md hover:bg-himlam-50">Việc làm</Link>
-            <Link to="/companies" className="block px-4 py-2 rounded-md hover:bg-himlam-50">Công ty</Link>
-            <Link to="/blog" className="block px-4 py-2 rounded-md hover:bg-himlam-50">Blog</Link>
-            <Link to="/my-cv" className="block px-4 py-2 rounded-md hover:bg-himlam-50">CV của tôi</Link>
-            <div className="pt-2 flex flex-col space-y-2 border-t border-gray-100 mt-2">
-              <Link to="/login" className="px-4 py-2 text-center border rounded-md">Đăng nhập</Link>
-              <Link to="/register" className="px-4 py-2 text-center bg-himlam-500 text-white rounded-md">Đăng ký</Link>
-            </div>
-          </div>
-        )}
       </div>
-    </nav>
+    </header>
   );
 };
 

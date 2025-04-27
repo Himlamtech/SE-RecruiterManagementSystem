@@ -9,7 +9,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Menu, X, User } from "lucide-react";
-import useIsMobile from "@/hooks/use-mobile";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
   const location = useLocation();

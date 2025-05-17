@@ -49,8 +49,8 @@ const Hero = () => {
 
           <div className="md:w-1/2 flex justify-center animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <img 
-              src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158" 
-              alt="Job seeker" 
+              src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b" 
+              alt="Technology career" 
               className="max-w-full h-auto rounded-lg shadow-xl transform -rotate-2 hover:rotate-0 transition-transform duration-500"
               style={{ maxHeight: '400px' }}
             />

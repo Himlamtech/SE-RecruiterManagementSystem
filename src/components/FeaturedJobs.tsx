@@ -9,7 +9,7 @@ const featuredJobs = [
     id: 1,
     title: 'Senior AI Engineer',
     company: 'Nvidia',
-    logo: 'https://placeholder.svg',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Nvidia_logo.svg/1200px-Nvidia_logo.svg.png',
     location: 'Hanoi',
     salaryRange: '60-80 million',
     type: 'Full-time',
@@ -20,7 +20,7 @@ const featuredJobs = [
     id: 2,
     title: 'Frontend Developer',
     company: 'FPT Software',
-    logo: 'https://placeholder.svg',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/1/12/FPT_logo.png',
     location: 'Ho Chi Minh',
     salaryRange: '25-35 million',
     type: 'Full-time',
@@ -31,7 +31,7 @@ const featuredJobs = [
     id: 3,
     title: 'Backend Engineer',
     company: 'Google',
-    logo: 'https://placeholder.svg',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png',
     location: 'Remote',
     salaryRange: '50-70 million',
     type: 'Full-time',
@@ -42,7 +42,7 @@ const featuredJobs = [
     id: 4,
     title: 'DevOps Engineer',
     company: 'Viettel',
-    logo: 'https://placeholder.svg',
+    logo: 'https://upload.wikimedia.org/wikipedia/vi/thumb/f/fe/Viettel_logo_2021.svg/2560px-Viettel_logo_2021.svg.png',
     location: 'Hanoi',
     salaryRange: '35-45 million',
     type: 'Full-time',
@@ -82,8 +82,8 @@ const FeaturedJobs = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start">
-                  <div className="w-12 h-12 bg-himlam-100 rounded-md flex items-center justify-center mr-4">
-                    <div className="text-xs font-bold text-himlam-700">{job.company.substring(0, 2)}</div>
+                  <div className="w-12 h-12 bg-white rounded-md flex items-center justify-center mr-4 border border-gray-100">
+                    <img src={job.logo} alt={job.company} className="max-w-full max-h-full p-1" />
                   </div>
                   <div className="flex-1">
                     <div className="flex items-start justify-between">

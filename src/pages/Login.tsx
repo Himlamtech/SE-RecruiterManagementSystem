@@ -17,27 +17,27 @@ import * as z from "zod";
 
 const loginSchema = z.object({
   email: z.string().email({
-    message: "Email không hợp lệ.",
+    message: "Please enter a valid email address.",
   }),
   password: z.string().min(6, {
-    message: "Mật khẩu phải có ít nhất 6 ký tự.",
+    message: "Password must be at least 6 characters.",
   }),
 });
 
 const registerSchema = z.object({
   name: z.string().min(2, {
-    message: "Tên phải có ít nhất 2 ký tự.",
+    message: "Name must be at least 2 characters.",
   }),
   email: z.string().email({
-    message: "Email không hợp lệ.",
+    message: "Please enter a valid email address.",
   }),
   password: z.string().min(6, {
-    message: "Mật khẩu phải có ít nhất 6 ký tự.",
+    message: "Password must be at least 6 characters.",
   }),
   confirmPassword: z.string(),
   role: z.enum(["candidate", "employer"]),
 }).refine((data) => data.password === data.confirmPassword, {
-  message: "Mật khẩu không khớp.",
+  message: "Passwords don't match.",
   path: ["confirmPassword"],
 });
 
@@ -49,8 +49,8 @@ const Login = () => {
   const loginForm = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
     defaultValues: {
-      email: "",
-      password: "",
+      email: "admin",
+      password: "admin",
     },
   });
 
@@ -68,8 +68,8 @@ const Login = () => {
   const onLoginSubmit = (values: z.infer<typeof loginSchema>) => {
     console.log(values);
     toast({
-      title: "Đăng nhập thành công",
-      description: "Chào mừng bạn quay trở lại HimLam.",
+      title: "Login successful",
+      description: "Welcome back to HimLam.",
     });
     // Redirect to home page if successful
   };
@@ -77,8 +77,8 @@ const Login = () => {
   const onRegisterSubmit = (values: z.infer<typeof registerSchema>) => {
     console.log(values);
     toast({
-      title: "Đăng ký thành công",
-      description: "Vui lòng kiểm tra email để xác nhận tài khoản.",
+      title: "Registration successful",
+      description: "Please check your email to confirm your account.",
     });
     // Redirect to login tab if successful
   };
@@ -98,22 +98,22 @@ const Login = () => {
       <main className="flex-grow flex items-center justify-center py-12 px-4">
         <div className="w-full max-w-md">
           <div className="text-center mb-8 animate-fade-in">
-            <h1 className="text-3xl font-bold text-gray-800">Chào mừng đến với HimLam</h1>
-            <p className="text-gray-600 mt-2">Nền tảng tuyển dụng hàng đầu cho ngành IT</p>
+            <h1 className="text-3xl font-bold text-gray-800">Welcome to HimLam</h1>
+            <p className="text-gray-600 mt-2">The leading recruitment platform for IT industry</p>
           </div>
           
           <Tabs defaultValue="login" className="w-full">
             <TabsList className="grid grid-cols-2 mb-8">
-              <TabsTrigger value="login">Đăng nhập</TabsTrigger>
-              <TabsTrigger value="register">Đăng ký</TabsTrigger>
+              <TabsTrigger value="login">Login</TabsTrigger>
+              <TabsTrigger value="register">Register</TabsTrigger>
             </TabsList>
             
             <TabsContent value="login" className="animate-scale-in">
               <Card>
                 <CardHeader className="space-y-1">
-                  <CardTitle className="text-2xl text-center">Đăng nhập</CardTitle>
+                  <CardTitle className="text-2xl text-center">Login</CardTitle>
                   <CardDescription className="text-center">
-                    Nhập email và mật khẩu để truy cập vào tài khoản của bạn
+                    Enter your email and password to access your account
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -144,7 +144,7 @@ const Login = () => {
                         name="password"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Mật khẩu</FormLabel>
+                            <FormLabel>Password</FormLabel>
                             <FormControl>
                               <div className="relative">
                                 <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -174,11 +174,11 @@ const Login = () => {
                       />
                       <div className="flex items-center justify-end">
                         <Link to="/forgot-password" className="text-sm text-himlam-600 hover:underline">
-                          Quên mật khẩu?
+                          Forgot your password?
                         </Link>
                       </div>
                       <Button type="submit" className="w-full bg-himlam-500 hover:bg-himlam-600">
-                        <LogIn className="mr-2 h-4 w-4" /> Đăng nhập
+                        <LogIn className="mr-2 h-4 w-4" /> Login
                       </Button>
                     </form>
                   </Form>
@@ -189,7 +189,7 @@ const Login = () => {
                         <Separator className="w-full" />
                       </div>
                       <div className="relative flex justify-center text-xs uppercase">
-                        <span className="bg-white px-2 text-gray-500">Hoặc đăng nhập với</span>
+                        <span className="bg-white px-2 text-gray-500">Or login with</span>
                       </div>
                     </div>
                     
@@ -215,9 +215,9 @@ const Login = () => {
             <TabsContent value="register" className="animate-scale-in">
               <Card>
                 <CardHeader className="space-y-1">
-                  <CardTitle className="text-2xl text-center">Tạo tài khoản mới</CardTitle>
+                  <CardTitle className="text-2xl text-center">Create a new account</CardTitle>
                   <CardDescription className="text-center">
-                    Nhập thông tin của bạn để tạo tài khoản
+                    Enter your information to create an account
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
@@ -228,10 +228,10 @@ const Login = () => {
                         name="name"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Họ tên</FormLabel>
+                            <FormLabel>Full Name</FormLabel>
                             <FormControl>
                               <Input 
-                                placeholder="Nguyễn Văn A" 
+                                placeholder="John Smith" 
                                 {...field} 
                               />
                             </FormControl>
@@ -266,7 +266,7 @@ const Login = () => {
                         name="password"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Mật khẩu</FormLabel>
+                            <FormLabel>Password</FormLabel>
                             <FormControl>
                               <div className="relative">
                                 <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -291,7 +291,7 @@ const Login = () => {
                               </div>
                             </FormControl>
                             <FormDescription>
-                              Mật khẩu phải có ít nhất 6 ký tự
+                              Password must be at least 6 characters
                             </FormDescription>
                             <FormMessage />
                           </FormItem>
@@ -303,7 +303,7 @@ const Login = () => {
                         name="confirmPassword"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Xác nhận mật khẩu</FormLabel>
+                            <FormLabel>Confirm Password</FormLabel>
                             <FormControl>
                               <div className="relative">
                                 <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
@@ -337,7 +337,7 @@ const Login = () => {
                         name="role"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel>Bạn là</FormLabel>
+                            <FormLabel>You are a</FormLabel>
                             <div className="flex gap-4">
                               <label className={`flex-1 border rounded-md p-3 cursor-pointer ${field.value === "candidate" ? "border-himlam-500 bg-himlam-50" : "border-gray-200"}`}>
                                 <input
@@ -348,8 +348,8 @@ const Login = () => {
                                   className="sr-only"
                                 />
                                 <div className="text-center">
-                                  <div className="font-medium">Người tìm việc</div>
-                                  <div className="text-sm text-gray-500">Tìm kiếm công việc mới</div>
+                                  <div className="font-medium">Job Seeker</div>
+                                  <div className="text-sm text-gray-500">Looking for a new job</div>
                                 </div>
                               </label>
                               <label className={`flex-1 border rounded-md p-3 cursor-pointer ${field.value === "employer" ? "border-himlam-500 bg-himlam-50" : "border-gray-200"}`}>
@@ -361,8 +361,8 @@ const Login = () => {
                                   className="sr-only"
                                 />
                                 <div className="text-center">
-                                  <div className="font-medium">Nhà tuyển dụng</div>
-                                  <div className="text-sm text-gray-500">Đăng tin tuyển dụng</div>
+                                  <div className="font-medium">Employer</div>
+                                  <div className="text-sm text-gray-500">Post job listings</div>
                                 </div>
                               </label>
                             </div>
@@ -372,22 +372,22 @@ const Login = () => {
                       />
                       
                       <Button type="submit" className="w-full bg-himlam-500 hover:bg-himlam-600">
-                        Đăng ký
+                        Register
                       </Button>
                     </form>
                   </Form>
                   
                   <div className="mt-4 text-center text-sm">
                     <p>
-                      Bằng việc đăng ký, bạn đồng ý với{" "}
+                      By registering, you agree to our{" "}
                       <Link to="/terms" className="text-himlam-600 hover:underline">
-                        Điều khoản dịch vụ
+                        Terms of Service
                       </Link>{" "}
-                      và{" "}
+                      and{" "}
                       <Link to="/privacy" className="text-himlam-600 hover:underline">
-                        Chính sách bảo mật
-                      </Link>{" "}
-                      của chúng tôi.
+                        Privacy Policy
+                      </Link>
+                      .
                     </p>
                   </div>
                 </CardContent>

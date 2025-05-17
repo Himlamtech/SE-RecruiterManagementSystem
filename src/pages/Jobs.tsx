@@ -14,8 +14,8 @@ const MOCK_JOBS = Array.from({ length: 10 }, (_, i) => ({
   id: i + 1,
   title: ['Senior Frontend Developer', 'Backend Engineer', 'ML Engineer', 'DevOps Specialist', 'Full Stack Developer'][i % 5],
   company: ['Google', 'Nvidia', 'Viettel', 'FPT', 'VNG', 'Microsoft', 'Amazon', 'Shopee', 'Tiki'][i % 9],
-  location: ['Hà Nội', 'Hồ Chí Minh', 'Đà Nẵng', 'Remote'][i % 4],
-  salaryRange: ['30-50 triệu', '20-30 triệu', '40-60 triệu', '25-35 triệu', '50-70 triệu'][i % 5],
+  location: ['Hanoi', 'Ho Chi Minh', 'Da Nang', 'Remote'][i % 4],
+  salaryRange: ['30-50 million', '20-30 million', '40-60 million', '25-35 million', '50-70 million'][i % 5],
   type: ['Full-time', 'Part-time', 'Contract', 'Freelance'][i % 4],
   tags: [
     ['React', 'TypeScript', 'Tailwind'],
@@ -32,7 +32,7 @@ const Jobs = () => {
   const [filterOpen, setFilterOpen] = useState(false);
   const [salaryRange, setSalaryRange] = useState([20, 60]);
   
-  const locations = ['Hà Nội', 'Hồ Chí Minh', 'Đà Nẵng', 'Remote'];
+  const locations = ['Hanoi', 'Ho Chi Minh', 'Da Nang', 'Remote'];
   const jobTypes = ['Full-time', 'Part-time', 'Contract', 'Freelance'];
   const categories = ['Frontend', 'Backend', 'Full Stack', 'DevOps', 'AI/ML', 'Mobile', 'Data Science'];
   
@@ -51,12 +51,12 @@ const Jobs = () => {
         <section className="bg-gradient-himlam py-12 px-4">
           <div className="container mx-auto text-center max-w-3xl">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-6 animate-fade-in">
-              Tìm việc làm IT phù hợp với bạn
+              Find IT jobs that fit you
             </h1>
             <form onSubmit={handleSearch} className="flex w-full relative animate-fade-in">
               <Input
                 type="text"
-                placeholder="Tìm kiếm vị trí, công ty, kỹ năng..."
+                placeholder="Search position, company, skills..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="pr-32 border-himlam-200 focus:border-himlam-400"
@@ -65,11 +65,11 @@ const Jobs = () => {
                 type="submit" 
                 className="absolute right-0 h-full bg-himlam-500 hover:bg-himlam-600"
               >
-                <Search className="h-4 w-4 mr-2" /> Tìm kiếm
+                <Search className="h-4 w-4 mr-2" /> Search
               </Button>
             </form>
             <div className="mt-4 text-gray-600 animate-fade-in">
-              <p>Tìm thấy {MOCK_JOBS.length} việc làm phù hợp</p>
+              <p>Found {MOCK_JOBS.length} matching jobs</p>
             </div>
           </div>
         </section>
@@ -87,18 +87,18 @@ const Jobs = () => {
                 >
                   <div className="flex items-center">
                     <Filter className="h-4 w-4 mr-2" />
-                    <span>Bộ lọc</span>
+                    <span>Filters</span>
                   </div>
                   {filterOpen ? <ChevronUp className="h-4 w-4" /> : <ChevronDown className="h-4 w-4" />}
                 </Button>
               </div>
               
               <div className={`bg-white p-6 rounded-lg shadow-sm border border-gray-100 ${filterOpen ? 'block' : 'hidden md:block'} animate-fade-in`}>
-                <h3 className="font-semibold text-lg mb-4">Lọc kết quả</h3>
+                <h3 className="font-semibold text-lg mb-4">Filter Results</h3>
                 
                 {/* Salary Range */}
                 <div className="mb-6">
-                  <h4 className="font-medium text-gray-800 mb-2">Mức lương (triệu VND)</h4>
+                  <h4 className="font-medium text-gray-800 mb-2">Salary Range (million VND)</h4>
                   <div className="px-2">
                     <Slider
                       defaultValue={[20, 60]}
@@ -110,15 +110,15 @@ const Jobs = () => {
                       className="mt-2"
                     />
                     <div className="flex justify-between text-sm text-gray-600 mt-2">
-                      <span>{salaryRange[0]} triệu</span>
-                      <span>{salaryRange[1]} triệu</span>
+                      <span>{salaryRange[0]} million</span>
+                      <span>{salaryRange[1]} million</span>
                     </div>
                   </div>
                 </div>
                 
                 {/* Location */}
                 <div className="mb-6">
-                  <h4 className="font-medium text-gray-800 mb-2">Địa điểm</h4>
+                  <h4 className="font-medium text-gray-800 mb-2">Location</h4>
                   <div className="space-y-2">
                     {locations.map((location, i) => (
                       <div key={i} className="flex items-center">
@@ -133,7 +133,7 @@ const Jobs = () => {
                 
                 {/* Job Type */}
                 <div className="mb-6">
-                  <h4 className="font-medium text-gray-800 mb-2">Loại công việc</h4>
+                  <h4 className="font-medium text-gray-800 mb-2">Job Type</h4>
                   <div className="space-y-2">
                     {jobTypes.map((type, i) => (
                       <div key={i} className="flex items-center">
@@ -148,7 +148,7 @@ const Jobs = () => {
                 
                 {/* Category */}
                 <div className="mb-6">
-                  <h4 className="font-medium text-gray-800 mb-2">Danh mục</h4>
+                  <h4 className="font-medium text-gray-800 mb-2">Category</h4>
                   <div className="space-y-2">
                     {categories.map((category, i) => (
                       <div key={i} className="flex items-center">
@@ -162,7 +162,7 @@ const Jobs = () => {
                 </div>
                 
                 <Button className="w-full bg-himlam-500 hover:bg-himlam-600 mt-4">
-                  Áp dụng bộ lọc
+                  Apply Filters
                 </Button>
               </div>
             </div>
@@ -205,7 +205,7 @@ const Jobs = () => {
                             </div>
                             <div className="flex items-center text-sm text-gray-600">
                               <Briefcase className="h-4 w-4 mr-1 text-himlam-500" />
-                              {job.postedDays} ngày trước
+                              {job.postedDays} days ago
                             </div>
                           </div>
                         </div>
@@ -231,10 +231,10 @@ const Jobs = () => {
               
               <div className="mt-8 flex justify-center animate-fade-in">
                 <Button variant="outline" className="border-himlam-300 hover:border-himlam-500 mr-2">
-                  Trang trước
+                  Previous Page
                 </Button>
                 <Button variant="outline" className="border-himlam-300 hover:border-himlam-500">
-                  Trang sau
+                  Next Page
                 </Button>
               </div>
             </div>

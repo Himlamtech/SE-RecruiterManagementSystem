@@ -50,10 +50,10 @@ const JobStats = () => {
       <div className="container mx-auto">
         <div className="text-center mb-12 animate-fade-in">
           <h2 className="text-3xl font-bold text-gray-800 mb-4">
-            Thống kê thị trường IT Việt Nam
+            IT Market Statistics in Vietnam
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Khám phá mức lương trung bình và số lượng vị trí mở theo từng vai trò và công nghệ
+            Explore average salaries and number of open positions by role and technology
           </p>
         </div>
 
@@ -66,10 +66,10 @@ const JobStats = () => {
             <div className="flex justify-center mb-8">
               <TabsList>
                 <TabsTrigger value="positions" className="px-6">
-                  Vị trí công việc
+                  Job Positions
                 </TabsTrigger>
                 <TabsTrigger value="languages" className="px-6">
-                  Ngôn ngữ lập trình
+                  Programming Languages
                 </TabsTrigger>
               </TabsList>
             </div>
@@ -77,7 +77,7 @@ const JobStats = () => {
             <TabsContent value="positions" className="animate-scale-in">
               <div className="p-6 bg-white rounded-xl shadow-lg border border-gray-100">
                 <h3 className="text-xl font-semibold mb-6 text-center">
-                  Mức lương trung bình theo vị trí (triệu VND/tháng)
+                  Average Salary by Position (million VND/month)
                 </h3>
                 <div className="h-80">
                   <ResponsiveContainer width="100%" height="100%">
@@ -85,7 +85,7 @@ const JobStats = () => {
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="name" />
                       <YAxis tickFormatter={formatSalary} />
-                      <Tooltip formatter={(value) => [`${value}M VND`, 'Mức lương TB']} />
+                      <Tooltip formatter={(value) => [`${value}M VND`, 'Avg. Salary']} />
                       <Bar dataKey="salary" fill="#0e96ea" radius={[4, 4, 0, 0]}>
                         {positionData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
@@ -97,7 +97,7 @@ const JobStats = () => {
                 
                 <div className="mt-8">
                   <h3 className="text-xl font-semibold mb-6 text-center">
-                    Số lượng việc làm đang tuyển
+                    Number of Jobs Available
                   </h3>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {positionData.map((item, index) => (
@@ -114,7 +114,7 @@ const JobStats = () => {
             <TabsContent value="languages" className="animate-scale-in">
               <div className="p-6 bg-white rounded-xl shadow-lg border border-gray-100">
                 <h3 className="text-xl font-semibold mb-6 text-center">
-                  Mức lương trung bình theo ngôn ngữ (triệu VND/tháng)
+                  Average Salary by Language (million VND/month)
                 </h3>
                 <div className="h-80">
                   <ResponsiveContainer width="100%" height="100%">
@@ -122,7 +122,7 @@ const JobStats = () => {
                       <CartesianGrid strokeDasharray="3 3" />
                       <XAxis dataKey="name" />
                       <YAxis tickFormatter={formatSalary} />
-                      <Tooltip formatter={(value) => [`${value}M VND`, 'Mức lương TB']} />
+                      <Tooltip formatter={(value) => [`${value}M VND`, 'Avg. Salary']} />
                       <Bar dataKey="salary" fill="#0e96ea" radius={[4, 4, 0, 0]}>
                         {languageData.map((entry, index) => (
                           <Cell key={`cell-${index}`} fill={colors[index % colors.length]} />
@@ -134,7 +134,7 @@ const JobStats = () => {
 
                 <div className="mt-8">
                   <h3 className="text-xl font-semibold mb-6 text-center">
-                    Số lượng việc làm đang tuyển
+                    Number of Jobs Available
                   </h3>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                     {languageData.map((item, index) => (

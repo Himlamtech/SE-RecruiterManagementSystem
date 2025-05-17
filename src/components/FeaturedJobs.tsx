@@ -10,8 +10,8 @@ const featuredJobs = [
     title: 'Senior AI Engineer',
     company: 'Nvidia',
     logo: 'https://placeholder.svg',
-    location: 'Hà Nội',
-    salaryRange: '60-80 triệu',
+    location: 'Hanoi',
+    salaryRange: '60-80 million',
     type: 'Full-time',
     tags: ['AI', 'Machine Learning', 'Python', 'TensorFlow'],
     postedDays: 2
@@ -21,8 +21,8 @@ const featuredJobs = [
     title: 'Frontend Developer',
     company: 'FPT Software',
     logo: 'https://placeholder.svg',
-    location: 'Hồ Chí Minh',
-    salaryRange: '25-35 triệu',
+    location: 'Ho Chi Minh',
+    salaryRange: '25-35 million',
     type: 'Full-time',
     tags: ['React', 'TypeScript', 'Tailwind CSS'],
     postedDays: 3
@@ -33,7 +33,7 @@ const featuredJobs = [
     company: 'Google',
     logo: 'https://placeholder.svg',
     location: 'Remote',
-    salaryRange: '50-70 triệu',
+    salaryRange: '50-70 million',
     type: 'Full-time',
     tags: ['Go', 'Microservices', 'Cloud'],
     postedDays: 1
@@ -43,8 +43,8 @@ const featuredJobs = [
     title: 'DevOps Engineer',
     company: 'Viettel',
     logo: 'https://placeholder.svg',
-    location: 'Hà Nội',
-    salaryRange: '35-45 triệu',
+    location: 'Hanoi',
+    salaryRange: '35-45 million',
     type: 'Full-time',
     tags: ['Kubernetes', 'Docker', 'AWS', 'CI/CD'],
     postedDays: 5
@@ -57,14 +57,14 @@ const FeaturedJobs = () => {
       <div className="container mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <div className="animate-fade-in">
-            <h2 className="text-3xl font-bold text-gray-800 mb-2">Việc làm nổi bật</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-2">Featured Jobs</h2>
             <p className="text-lg text-gray-600">
-              Khám phá cơ hội nghề nghiệp từ các công ty công nghệ hàng đầu
+              Explore career opportunities from top technology companies
             </p>
           </div>
           <Link to="/jobs">
             <Button variant="outline" className="mt-4 md:mt-0 border-himlam-300 hover:border-himlam-500 flex items-center animate-fade-in">
-              <span>Xem tất cả</span>
+              <span>View all</span>
               <ChevronRight className="h-4 w-4 ml-1" />
             </Button>
           </Link>
@@ -109,7 +109,7 @@ const FeaturedJobs = () => {
                       </div>
                       <div className="flex items-center text-sm text-gray-600">
                         <Briefcase className="h-4 w-4 mr-1 text-himlam-500" />
-                        {job.postedDays} ngày trước
+                        {job.postedDays} days ago
                       </div>
                     </div>
                     
@@ -130,7 +130,7 @@ const FeaturedJobs = () => {
         <div className="mt-12 text-center animate-fade-in">
           <Link to="/jobs">
             <Button className="bg-himlam-500 hover:bg-himlam-600 text-white">
-              Xem thêm việc làm
+              View more jobs
             </Button>
           </Link>
         </div>

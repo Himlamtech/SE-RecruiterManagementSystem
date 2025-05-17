@@ -10,7 +10,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-6">HimLam</h3>
             <p className="text-himlam-100 mb-4">
-              Kết nối ứng viên IT với những cơ hội việc làm tốt nhất tại các công ty công nghệ hàng đầu Việt Nam và quốc tế.
+              Connecting IT candidates with the best job opportunities at leading technology companies in Vietnam and internationally.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-himlam-100 hover:text-white transition-colors">
@@ -37,32 +37,32 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Dành cho ứng viên</h3>
+            <h3 className="text-lg font-semibold mb-4">For Candidates</h3>
             <ul className="space-y-3">
-              <li><Link to="/jobs" className="text-himlam-100 hover:text-white transition-colors">Tìm việc làm</Link></li>
-              <li><Link to="/companies" className="text-himlam-100 hover:text-white transition-colors">Công ty hàng đầu</Link></li>
-              <li><Link to="/my-cv" className="text-himlam-100 hover:text-white transition-colors">Tạo CV</Link></li>
-              <li><Link to="/career-advice" className="text-himlam-100 hover:text-white transition-colors">Lời khuyên nghề nghiệp</Link></li>
-              <li><Link to="/salary-guide" className="text-himlam-100 hover:text-white transition-colors">Cẩm nang lương</Link></li>
+              <li><Link to="/jobs" className="text-himlam-100 hover:text-white transition-colors">Find Jobs</Link></li>
+              <li><Link to="/companies" className="text-himlam-100 hover:text-white transition-colors">Top Companies</Link></li>
+              <li><Link to="/my-cv" className="text-himlam-100 hover:text-white transition-colors">Create CV</Link></li>
+              <li><Link to="/career-advice" className="text-himlam-100 hover:text-white transition-colors">Career Advice</Link></li>
+              <li><Link to="/salary-guide" className="text-himlam-100 hover:text-white transition-colors">Salary Guide</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Dành cho nhà tuyển dụng</h3>
+            <h3 className="text-lg font-semibold mb-4">For Employers</h3>
             <ul className="space-y-3">
-              <li><Link to="/employer/post-job" className="text-himlam-100 hover:text-white transition-colors">Đăng tin tuyển dụng</Link></li>
-              <li><Link to="/employer/search-resumes" className="text-himlam-100 hover:text-white transition-colors">Tìm hồ sơ ứng viên</Link></li>
-              <li><Link to="/employer/pricing" className="text-himlam-100 hover:text-white transition-colors">Bảng giá dịch vụ</Link></li>
-              <li><Link to="/employer/login" className="text-himlam-100 hover:text-white transition-colors">Đăng nhập</Link></li>
+              <li><Link to="/employer/post-job" className="text-himlam-100 hover:text-white transition-colors">Post a Job</Link></li>
+              <li><Link to="/employer/search-resumes" className="text-himlam-100 hover:text-white transition-colors">Search Resumes</Link></li>
+              <li><Link to="/employer/pricing" className="text-himlam-100 hover:text-white transition-colors">Pricing</Link></li>
+              <li><Link to="/employer/login" className="text-himlam-100 hover:text-white transition-colors">Login</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Liên hệ</h3>
+            <h3 className="text-lg font-semibold mb-4">Contact</h3>
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 text-himlam-300 mt-0.5" />
-                <span className="text-himlam-100">123 Đường Lê Lợi, Quận 1, TP. Hồ Chí Minh</span>
+                <span className="text-himlam-100">123 Le Loi Street, District 1, Ho Chi Minh City</span>
               </li>
               <li className="flex items-center">
                 <Phone className="h-5 w-5 mr-2 text-himlam-300" />
@@ -81,7 +81,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-himlam-700 mt-12 pt-8 text-center text-himlam-200">
-          <p>&copy; {new Date().getFullYear()} HimLam. Tất cả các quyền được bảo lưu.</p>
+          <p>&copy; {new Date().getFullYear()} HimLam. All rights reserved.</p>
         </div>
       </div>
     </footer>

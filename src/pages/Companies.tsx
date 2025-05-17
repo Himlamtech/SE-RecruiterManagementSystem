@@ -14,10 +14,10 @@ import { Search, MapPin, Users, Building, Star, Briefcase } from "lucide-react";
 const companies = [
   {
     id: 1,
-    name: "Google Vietnam",
+    name: "Google",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png",
     industry: "Technology",
-    location: "Ho Chi Minh City",
+    location: "San Francisco",
     size: "1000-5000",
     description: "Google is an American multinational technology company focusing on Internet-related services and products, including online advertising technologies, a search engine, cloud computing, software, and hardware.",
     openPositions: 12,
@@ -28,75 +28,75 @@ const companies = [
     name: "FPT Software",
     logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/FPT_logo.png",
     industry: "Software Development",
-    location: "Hanoi, Da Nang, Ho Chi Minh City",
+    location: "Boston, New York, San Francisco",
     size: "5000-10000",
-    description: "FPT Software is a global technology company with headquarters in Vietnam. The company provides technology services for global markets.",
+    description: "FPT Software is a global technology company providing technology services for global markets.",
     openPositions: 25,
     rating: 4.2
   },
   {
     id: 3,
-    name: "Viettel",
-    logo: "https://upload.wikimedia.org/wikipedia/vi/thumb/f/fe/Viettel_logo_2021.svg/2560px-Viettel_logo_2021.svg.png",
+    name: "Verizon",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Verizon_2015_logo_-vector.svg/1280px-Verizon_2015_logo_-vector.svg.png",
     industry: "Telecommunications",
-    location: "Hanoi",
+    location: "New York",
     size: ">10000",
-    description: "Viettel is Vietnam's largest telecommunications company, operating in telecommunications, information technology, research and production of electronic equipment.",
+    description: "Verizon is one of America's largest telecommunications companies, operating in telecommunications, information technology, and digital services.",
     openPositions: 18,
     rating: 4.5
   },
   {
     id: 4,
-    name: "VNG Corporation",
-    logo: "https://cdn.haitrieu.com/wp-content/uploads/2022/01/Logo-VNG-V.png",
-    industry: "Internet & Gaming",
-    location: "Ho Chi Minh City",
+    name: "Meta",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Meta_Platforms_Inc._logo.svg/2560px-Meta_Platforms_Inc._logo.svg.png",
+    industry: "Internet & Social Media",
+    location: "Menlo Park",
     size: "1000-5000",
-    description: "VNG is a leading technology company in Vietnam in digital content, entertainment, social networks, and commerce.",
+    description: "Meta is a leading technology company known for social networks, digital platforms, and innovative technologies.",
     openPositions: 15,
     rating: 4.3
   },
   {
     id: 5,
-    name: "Microsoft Vietnam",
+    name: "Microsoft",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
     industry: "Technology",
-    location: "Ho Chi Minh City",
+    location: "Redmond",
     size: "500-1000",
-    description: "Microsoft Vietnam is a branch of Microsoft in Vietnam, providing software products, services and solutions for the Vietnamese market.",
+    description: "Microsoft is a multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, and personal computers.",
     openPositions: 8,
     rating: 4.7
   },
   {
     id: 6,
-    name: "Momo",
-    logo: "https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png",
+    name: "PayPal",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/2560px-PayPal.svg.png",
     industry: "Fintech",
-    location: "Ho Chi Minh City",
+    location: "San Jose",
     size: "500-1000",
-    description: "MoMo is a leading e-wallet application in Vietnam, providing mobile payment services and financial solutions.",
+    description: "PayPal is a leading online payments system that supports online money transfers and serves as an electronic alternative to traditional paper methods.",
     openPositions: 20,
     rating: 4.4
   },
   {
     id: 7,
-    name: "VNPT Technology",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/VNPT_Logo.svg/2560px-VNPT_Logo.svg.png",
+    name: "AT&T",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/AT%26T_logo_2016.svg/2560px-AT%26T_logo_2016.svg.png",
     industry: "Telecommunications",
-    location: "Hanoi",
+    location: "Dallas",
     size: "1000-5000",
-    description: "VNPT Technology is a member of the VNPT Group, specializing in providing information technology and telecommunications solutions.",
+    description: "AT&T is an American multinational telecommunications company providing wireless services, broadband, and various digital solutions.",
     openPositions: 10,
     rating: 4.0
   },
   {
     id: 8,
-    name: "Tiki",
-    logo: "https://upload.wikimedia.org/wikipedia/vi/0/09/Tiki.vn_logo.png",
+    name: "Amazon",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png",
     industry: "E-commerce",
-    location: "Ho Chi Minh City",
+    location: "Seattle",
     size: "1000-5000",
-    description: "Tiki is one of the largest e-commerce platforms in Vietnam, offering millions of products across various categories.",
+    description: "Amazon is one of the largest e-commerce platforms in the world, offering millions of products across various categories.",
     openPositions: 17,
     rating: 4.2
   }
@@ -124,7 +124,7 @@ const Companies = () => {
           <div className="text-center mb-10 animate-fade-in">
             <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Explore IT Companies</h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Learn about top technology companies and career opportunities in Vietnam and globally
+              Learn about top technology companies and career opportunities globally
             </p>
             
             <form onSubmit={handleSearch} className="mt-8 max-w-4xl mx-auto">
@@ -143,7 +143,7 @@ const Companies = () => {
                   <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                   <Input
                     type="text"
-                    placeholder="Location: Hanoi, Ho Chi Minh City..."
+                    placeholder="Location: New York, San Francisco..."
                     className="pl-10 border-himlam-200 focus:border-himlam-400"
                     value={locationFilter}
                     onChange={(e) => setLocationFilter(e.target.value)}

@@ -13,6 +13,10 @@ import Login from "./pages/Login";
 import Blog from "./pages/Blog";
 import Companies from "./pages/Companies";
 import CompanyDetail from "./pages/CompanyDetail";
+import Admin from "./pages/Admin";
+import JobPostings from "./pages/admin/JobPostings";
+import Candidates from "./pages/admin/Candidates";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +35,10 @@ const App = () => (
           <Route path="/blog" element={<Blog />} />
           <Route path="/companies" element={<Companies />} />
           <Route path="/companies/:id" element={<CompanyDetail />} />
+          <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/jobs" element={<JobPostings />} />
+          <Route path="/admin/candidates" element={<Candidates />} />
+          <Route path="/admin/dashboard" element={<AdminDashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

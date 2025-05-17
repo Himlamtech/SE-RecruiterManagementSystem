@@ -8,7 +8,7 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu, X, User } from "lucide-react";
+import { Menu, X, User, Settings } from "lucide-react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
 const Navbar = () => {
@@ -56,6 +56,11 @@ const Navbar = () => {
 
           {/* User Actions */}
           <div className="hidden md:flex items-center space-x-4">
+            <Link to="/admin">
+              <Button variant="outline" className="border-himlam-300 hover:border-himlam-500">
+                <Settings className="h-4 w-4 mr-2" /> Admin
+              </Button>
+            </Link>
             <Link to="/login">
               <Button variant="outline" className="border-himlam-300 hover:border-himlam-500">
                 Sign In
@@ -116,6 +121,19 @@ const Navbar = () => {
                         )}
                       >
                         My Profile
+                      </Link>
+                      
+                      <Link
+                        to="/admin"
+                        onClick={() => setIsOpen(false)}
+                        className={cn(
+                          "block py-2 text-lg",
+                          isActive("/admin")
+                            ? "text-himlam-600 font-medium"
+                            : "text-gray-600 hover:text-himlam-600"
+                        )}
+                      >
+                        Admin Panel
                       </Link>
                     </div>
 

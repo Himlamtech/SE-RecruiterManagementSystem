@@ -8,16 +8,21 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { FileText, Plus, Edit, Download, Trash2 } from "lucide-react";
+import { FileText, Plus, Edit, Download, Trash2, Eye } from "lucide-react";
 import { toast } from "sonner";
+import { useNavigate } from "react-router-dom";
 
 // Mock admin credentials
 const ADMIN_USER = "admin";
 const ADMIN_PASSWORD = "admin";
 
 const MyCV = () => {
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState("create");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [showLoginModal, setShowLoginModal] = useState(false);
   const [savedCVs, setSavedCVs] = useState([
     { id: 1, name: "Main CV", lastUpdated: "04/20/2025", template: "Modern" },
     { id: 2, name: "English CV", lastUpdated: "04/15/2025", template: "Minimal" },
@@ -67,28 +72,37 @@ const MyCV = () => {
     skills: "JavaScript, React, TypeScript, HTML5, CSS3, Tailwind CSS, Git, Jest, RESTful APIs"
   };
 
+  // Function to view CV detail
+  const viewCVDetail = (cvId) => {
+    // In a real application, you would navigate to a detail view or open a modal
+    toast.info(`Viewing CV #${cvId} details`);
+    // Here you would navigate to a detail page or open a modal with the CV details
+  };
+
+  // Function to handle login
+  const handleLogin = (e) => {
+    e.preventDefault();
+    
+    if (username === ADMIN_USER && password === ADMIN_PASSWORD) {
+      // Store authentication status
+      localStorage.setItem("isAuthenticated", "true");
+      setIsAuthenticated(true);
+      setShowLoginModal(false);
+      
+      // Apply default CV
+      setActiveTab("create");
+      toast.success("Logged in successfully! Default CV template applied");
+    } else {
+      toast.error("Invalid credentials");
+    }
+  };
+
   // Function to apply default CV template
   const applyDefaultCV = () => {
     // First check if user is authenticated
     if (!isAuthenticated) {
-      // Ask for credentials
-      const username = prompt("Please enter admin username:");
-      const password = prompt("Please enter admin password:");
-      
-      if (username === ADMIN_USER && password === ADMIN_PASSWORD) {
-        // Store authentication status
-        localStorage.setItem("isAuthenticated", "true");
-        setIsAuthenticated(true);
-        
-        // Apply default CV
-        setActiveTab("create");
-        toast.success("Default CV template applied");
-        
-        // Here we would populate the form fields
-        // In a real app, you'd use form state management and set the values
-      } else {
-        toast.error("Invalid credentials");
-      }
+      // Show login modal
+      setShowLoginModal(true);
     } else {
       // User is already authenticated
       setActiveTab("create");
@@ -113,11 +127,52 @@ const MyCV = () => {
           <div className="flex justify-center mb-8">
             <Button 
               onClick={applyDefaultCV} 
-              className="bg-purple-500 hover:bg-purple-600 text-white mr-4"
+              variant="primary"
             >
               Default CV
             </Button>
           </div>
+          
+          {showLoginModal && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+              <div className="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
+                <h2 className="text-xl font-bold mb-4">Admin Login</h2>
+                <p className="text-gray-600 mb-4">Please login to access this feature</p>
+                
+                <form onSubmit={handleLogin} className="space-y-4">
+                  <div>
+                    <Label htmlFor="username">Username</Label>
+                    <Input 
+                      id="username" 
+                      value={username} 
+                      onChange={(e) => setUsername(e.target.value)}
+                      placeholder="admin"
+                    />
+                  </div>
+                  
+                  <div>
+                    <Label htmlFor="password">Password</Label>
+                    <Input 
+                      id="password" 
+                      type="password" 
+                      value={password} 
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="admin"
+                    />
+                  </div>
+                  
+                  <div className="flex justify-end gap-2">
+                    <Button type="button" variant="outline" onClick={() => setShowLoginModal(false)}>
+                      Cancel
+                    </Button>
+                    <Button type="submit">
+                      Login
+                    </Button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          )}
           
           <Tabs 
             defaultValue="create" 
@@ -418,14 +473,19 @@ const MyCV = () => {
                     </CardHeader>
                     <CardContent>
                       <div className="h-40 bg-gray-50 rounded flex items-center justify-center">
-                        <FileText className="h-16 w-16 text-himlam-400" />
+                        <FileText className="h-16 w-16 text-purple-400" />
                       </div>
                       <p className="text-sm text-gray-500 mt-2">Updated: {cv.lastUpdated}</p>
                     </CardContent>
-                    <CardFooter className="flex justify-between">
-                      <Button variant="outline" size="sm">
-                        <Edit className="h-4 w-4 mr-1" /> Edit
-                      </Button>
+                    <CardFooter className="flex justify-between flex-wrap gap-2">
+                      <div className="space-x-2">
+                        <Button variant="outline" size="sm" onClick={() => viewCVDetail(cv.id)}>
+                          <Eye className="h-4 w-4 mr-1" /> View Detail
+                        </Button>
+                        <Button variant="outline" size="sm">
+                          <Edit className="h-4 w-4 mr-1" /> Edit
+                        </Button>
+                      </div>
                       <div className="space-x-2">
                         <Button variant="outline" size="sm">
                           <Download className="h-4 w-4 mr-1" /> Download
@@ -439,12 +499,12 @@ const MyCV = () => {
                 ))}
                 
                 <Card className="border-dashed border-2 flex flex-col items-center justify-center p-6 h-full">
-                  <div className="w-16 h-16 rounded-full bg-himlam-100 flex items-center justify-center mb-4">
-                    <Plus className="h-8 w-8 text-himlam-500" />
+                  <div className="w-16 h-16 rounded-full bg-purple-100 flex items-center justify-center mb-4">
+                    <Plus className="h-8 w-8 text-purple-500" />
                   </div>
                   <h3 className="text-lg font-medium mb-2">Create New CV</h3>
                   <p className="text-center text-gray-500 mb-4">Create additional CVs tailored for different job positions</p>
-                  <Button className="bg-himlam-500 hover:bg-himlam-600 text-white" onClick={() => setActiveTab("create")}>
+                  <Button variant="primary" onClick={() => setActiveTab("create")}>
                     Create New CV
                   </Button>
                 </Card>

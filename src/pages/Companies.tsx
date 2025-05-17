@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -16,9 +17,9 @@ const companies = [
     name: "Google Vietnam",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png",
     industry: "Technology",
-    location: "Hồ Chí Minh",
+    location: "Ho Chi Minh City",
     size: "1000-5000",
-    description: "Google là công ty công nghệ đa quốc gia của Mỹ, chuyên về các dịch vụ và sản phẩm liên quan đến Internet, bao gồm công nghệ quảng cáo trực tuyến, công cụ tìm kiếm, điện toán đám mây, phần mềm và phần cứng.",
+    description: "Google is an American multinational technology company focusing on Internet-related services and products, including online advertising technologies, a search engine, cloud computing, software, and hardware.",
     openPositions: 12,
     rating: 4.8
   },
@@ -27,9 +28,9 @@ const companies = [
     name: "FPT Software",
     logo: "https://upload.wikimedia.org/wikipedia/commons/1/12/FPT_logo.png",
     industry: "Software Development",
-    location: "Hà Nội, Đà Nẵng, Hồ Chí Minh",
+    location: "Hanoi, Da Nang, Ho Chi Minh City",
     size: "5000-10000",
-    description: "FPT Software là một công ty công nghệ thông tin toàn cầu có trụ sở chính tại Việt Nam. Công ty cung cấp các dịch vụ công nghệ cho các thị trường toàn cầu.",
+    description: "FPT Software is a global technology company with headquarters in Vietnam. The company provides technology services for global markets.",
     openPositions: 25,
     rating: 4.2
   },
@@ -38,9 +39,9 @@ const companies = [
     name: "Viettel",
     logo: "https://upload.wikimedia.org/wikipedia/vi/thumb/f/fe/Viettel_logo_2021.svg/2560px-Viettel_logo_2021.svg.png",
     industry: "Telecommunications",
-    location: "Hà Nội",
+    location: "Hanoi",
     size: ">10000",
-    description: "Viettel là tập đoàn viễn thông và công nghệ lớn nhất Việt Nam, hoạt động trong các lĩnh vực viễn thông, công nghệ thông tin, nghiên cứu và sản xuất thiết bị điện tử.",
+    description: "Viettel is Vietnam's largest telecommunications company, operating in telecommunications, information technology, research and production of electronic equipment.",
     openPositions: 18,
     rating: 4.5
   },
@@ -49,9 +50,9 @@ const companies = [
     name: "VNG Corporation",
     logo: "https://cdn.haitrieu.com/wp-content/uploads/2022/01/Logo-VNG-V.png",
     industry: "Internet & Gaming",
-    location: "Hồ Chí Minh",
+    location: "Ho Chi Minh City",
     size: "1000-5000",
-    description: "VNG là công ty công nghệ hàng đầu Việt Nam trong lĩnh vực nội dung số, giải trí, mạng xã hội và thương mại.",
+    description: "VNG is a leading technology company in Vietnam in digital content, entertainment, social networks, and commerce.",
     openPositions: 15,
     rating: 4.3
   },
@@ -60,9 +61,9 @@ const companies = [
     name: "Microsoft Vietnam",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/2048px-Microsoft_logo.svg.png",
     industry: "Technology",
-    location: "Hồ Chí Minh",
+    location: "Ho Chi Minh City",
     size: "500-1000",
-    description: "Microsoft Vietnam là chi nhánh của Microsoft tại Việt Nam, cung cấp các sản phẩm, dịch vụ và giải pháp phần mềm cho thị trường Việt Nam.",
+    description: "Microsoft Vietnam is a branch of Microsoft in Vietnam, providing software products, services and solutions for the Vietnamese market.",
     openPositions: 8,
     rating: 4.7
   },
@@ -71,9 +72,9 @@ const companies = [
     name: "Momo",
     logo: "https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png",
     industry: "Fintech",
-    location: "Hồ Chí Minh",
+    location: "Ho Chi Minh City",
     size: "500-1000",
-    description: "MoMo là ứng dụng ví điện tử hàng đầu Việt Nam, cung cấp các dịch vụ thanh toán di động và các giải pháp tài chính.",
+    description: "MoMo is a leading e-wallet application in Vietnam, providing mobile payment services and financial solutions.",
     openPositions: 20,
     rating: 4.4
   },
@@ -82,9 +83,9 @@ const companies = [
     name: "VNPT Technology",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/VNPT_Logo.svg/2560px-VNPT_Logo.svg.png",
     industry: "Telecommunications",
-    location: "Hà Nội",
+    location: "Hanoi",
     size: "1000-5000",
-    description: "VNPT Technology là đơn vị thành viên của Tập đoàn VNPT, chuyên cung cấp các giải pháp công nghệ thông tin và viễn thông.",
+    description: "VNPT Technology is a member of the VNPT Group, specializing in providing information technology and telecommunications solutions.",
     openPositions: 10,
     rating: 4.0
   },
@@ -93,9 +94,9 @@ const companies = [
     name: "Tiki",
     logo: "https://upload.wikimedia.org/wikipedia/vi/0/09/Tiki.vn_logo.png",
     industry: "E-commerce",
-    location: "Hồ Chí Minh",
+    location: "Ho Chi Minh City",
     size: "1000-5000",
-    description: "Tiki là một trong những nền tảng thương mại điện tử lớn nhất Việt Nam, cung cấp hàng triệu sản phẩm từ nhiều ngành hàng khác nhau.",
+    description: "Tiki is one of the largest e-commerce platforms in Vietnam, offering millions of products across various categories.",
     openPositions: 17,
     rating: 4.2
   }
@@ -121,9 +122,9 @@ const Companies = () => {
       <main className="flex-grow py-10 px-4 bg-gray-50">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-10 animate-fade-in">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Khám phá công ty IT</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Explore IT Companies</h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Tìm hiểu về các công ty công nghệ hàng đầu và cơ hội nghề nghiệp tại Việt Nam
+              Learn about top technology companies and career opportunities in Vietnam and globally
             </p>
             
             <form onSubmit={handleSearch} className="mt-8 max-w-4xl mx-auto">
@@ -132,7 +133,7 @@ const Companies = () => {
                   <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                   <Input
                     type="text"
-                    placeholder="Tên công ty hoặc lĩnh vực..."
+                    placeholder="Company name or industry..."
                     className="pl-10 border-himlam-200 focus:border-himlam-400"
                     value={searchQuery}
                     onChange={(e) => setSearchQuery(e.target.value)}
@@ -142,7 +143,7 @@ const Companies = () => {
                   <MapPin className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                   <Input
                     type="text"
-                    placeholder="Địa điểm: Hà Nội, TP.HCM..."
+                    placeholder="Location: Hanoi, Ho Chi Minh City..."
                     className="pl-10 border-himlam-200 focus:border-himlam-400"
                     value={locationFilter}
                     onChange={(e) => setLocationFilter(e.target.value)}
@@ -152,7 +153,7 @@ const Companies = () => {
                   type="submit" 
                   className="md:col-span-1 bg-himlam-500 hover:bg-himlam-600"
                 >
-                  Tìm kiếm
+                  Search
                 </Button>
               </div>
             </form>
@@ -162,9 +163,9 @@ const Companies = () => {
           <Tabs defaultValue="all" className="mb-12">
             <div className="flex justify-center">
               <TabsList className="bg-gray-100">
-                <TabsTrigger value="all">Tất cả</TabsTrigger>
-                <TabsTrigger value="technology">Công nghệ</TabsTrigger>
-                <TabsTrigger value="software">Phần mềm</TabsTrigger>
+                <TabsTrigger value="all">All</TabsTrigger>
+                <TabsTrigger value="technology">Technology</TabsTrigger>
+                <TabsTrigger value="software">Software</TabsTrigger>
                 <TabsTrigger value="fintech">Fintech</TabsTrigger>
                 <TabsTrigger value="ecommerce">E-commerce</TabsTrigger>
               </TabsList>
@@ -175,7 +176,7 @@ const Companies = () => {
               <div className="mb-12">
                 <h2 className="text-2xl font-bold mb-6 flex items-center">
                   <Building className="mr-2 text-himlam-500" size={24} />
-                  Công ty nổi bật
+                  Featured Companies
                 </h2>
                 
                 <div className="grid md:grid-cols-3 gap-6">
@@ -212,17 +213,17 @@ const Companies = () => {
                             </div>
                             <div className="flex items-center text-gray-600">
                               <Users className="mr-2 h-4 w-4" />
-                              <span className="text-sm">{company.size} nhân viên</span>
+                              <span className="text-sm">{company.size} employees</span>
                             </div>
                           </div>
                           
                           <div className="flex items-center justify-between mt-6">
                             <Badge variant="outline" className="flex items-center border-himlam-300 bg-himlam-50 text-himlam-600">
                               <Briefcase className="mr-1 h-3 w-3" />
-                              {company.openPositions} vị trí đang tuyển
+                              {company.openPositions} open positions
                             </Badge>
                             <Button variant="ghost" className="text-himlam-600">
-                              Xem chi tiết
+                              View Details
                             </Button>
                           </div>
                         </div>
@@ -234,7 +235,7 @@ const Companies = () => {
               {/* All companies */}
               <h2 className="text-2xl font-bold mb-6 flex items-center">
                 <Building className="mr-2 text-himlam-500" size={24} />
-                Tất cả công ty
+                All Companies
               </h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -272,10 +273,10 @@ const Companies = () => {
                       <div className="flex items-center justify-between mt-4">
                         <Badge variant="outline" className="flex items-center text-xs border-himlam-300 bg-himlam-50 text-himlam-600">
                           <Briefcase className="mr-1 h-3 w-3" />
-                          {company.openPositions} vị trí
+                          {company.openPositions} positions
                         </Badge>
                         <Button variant="ghost" size="sm" className="text-himlam-600">
-                          Xem chi tiết
+                          View Details
                         </Button>
                       </div>
                     </div>
@@ -285,7 +286,7 @@ const Companies = () => {
               
               <div className="mt-10 text-center">
                 <Button variant="outline" className="border-himlam-300 hover:border-himlam-500">
-                  Xem thêm công ty
+                  View More Companies
                 </Button>
               </div>
             </TabsContent>
@@ -336,10 +337,10 @@ const Companies = () => {
                           <div className="flex items-center justify-between mt-4">
                             <Badge variant="outline" className="flex items-center text-xs border-himlam-300 bg-himlam-50 text-himlam-600">
                               <Briefcase className="mr-1 h-3 w-3" />
-                              {company.openPositions} vị trí
+                              {company.openPositions} positions
                             </Badge>
                             <Button variant="ghost" size="sm" className="text-himlam-600">
-                              Xem chi tiết
+                              View Details
                             </Button>
                           </div>
                         </div>
@@ -354,15 +355,15 @@ const Companies = () => {
           <div className="bg-himlam-50 border border-himlam-100 rounded-xl p-8 mt-12">
             <div className="md:flex items-center justify-between">
               <div className="md:w-2/3">
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">Bạn là nhà tuyển dụng?</h3>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">Are you an employer?</h3>
                 <p className="text-gray-600 mb-6 md:mb-0">
-                  Đăng ký trở thành đối tác tuyển dụng của HimLam để tiếp cận với hàng ngàn ứng viên tiềm năng trong lĩnh vực IT
+                  Register to become a HimLam recruitment partner to access thousands of potential IT candidates
                 </p>
               </div>
               <div>
                 <Button asChild className="bg-himlam-500 hover:bg-himlam-600">
                   <Link to="/register-company">
-                    Đăng ký ngay
+                    Register Now
                   </Link>
                 </Button>
               </div>

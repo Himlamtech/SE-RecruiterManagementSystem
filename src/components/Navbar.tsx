@@ -21,11 +21,11 @@ const Navbar = () => {
   };
 
   const navItems = [
-    { name: "Trang chủ", path: "/" },
-    { name: "Việc làm", path: "/jobs" },
-    { name: "Công ty", path: "/companies" },
+    { name: "Home", path: "/" },
+    { name: "Jobs", path: "/jobs" },
+    { name: "Companies", path: "/companies" },
     { name: "Blog", path: "/blog" },
-    { name: "Tạo CV", path: "/my-cv" },
+    { name: "Create CV", path: "/my-cv" },
   ];
 
   return (
@@ -58,12 +58,12 @@ const Navbar = () => {
           <div className="hidden md:flex items-center space-x-4">
             <Link to="/login">
               <Button variant="outline" className="border-himlam-300 hover:border-himlam-500">
-                Đăng nhập
+                Sign In
               </Button>
             </Link>
             <Link to="/login?tab=register">
               <Button className="bg-himlam-500 hover:bg-himlam-600">
-                Đăng ký
+                Register
               </Button>
             </Link>
           </div>
@@ -115,19 +115,19 @@ const Navbar = () => {
                             : "text-gray-600 hover:text-himlam-600"
                         )}
                       >
-                        Hồ sơ cá nhân
+                        My Profile
                       </Link>
                     </div>
 
                     <div className="pt-4 space-y-3">
                       <Link to="/login" onClick={() => setIsOpen(false)}>
                         <Button variant="outline" className="w-full border-himlam-300 hover:border-himlam-500">
-                          Đăng nhập
+                          Sign In
                         </Button>
                       </Link>
                       <Link to="/login?tab=register" onClick={() => setIsOpen(false)}>
                         <Button className="w-full bg-himlam-500 hover:bg-himlam-600">
-                          Đăng ký
+                          Register
                         </Button>
                       </Link>
                     </div>

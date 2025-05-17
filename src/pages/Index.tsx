@@ -17,7 +17,7 @@ const Index = () => {
         {/* Companies section */}
         <section className="py-16 px-4 bg-white">
           <div className="container mx-auto text-center">
-            <h2 className="text-3xl font-bold text-gray-800 mb-12 animate-fade-in">Đối tác tuyển dụng hàng đầu</h2>
+            <h2 className="text-3xl font-bold text-gray-800 mb-12 animate-fade-in">Top Recruitment Partners</h2>
             
             <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
               {['Google', 'Microsoft', 'Nvidia', 'FPT', 'Viettel', 'VNG'].map((company, index) => (

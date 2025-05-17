@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Navbar from "@/components/Navbar";
@@ -12,68 +13,68 @@ import { BookOpen, Search, Clock, User } from "lucide-react";
 const blogPosts = [
   {
     id: 1,
-    title: "10 kỹ năng cần có để trở thành Frontend Developer năm 2025",
-    excerpt: "Khám phá những kỹ năng và công nghệ mới nhất mà mọi Frontend Developer cần nắm vững để thành công trong sự nghiệp...",
+    title: "10 Essential Skills for Frontend Developers in 2025",
+    excerpt: "Discover the latest skills and technologies that every Frontend Developer needs to master for career success...",
     image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
     category: "career",
-    author: "Nguyễn Minh",
-    date: "23/04/2025",
-    readTime: "5 phút",
+    author: "Michael Johnson",
+    date: "04/23/2025",
+    readTime: "5 min",
     tags: ["Frontend", "Web Development", "Career"]
   },
   {
     id: 2,
-    title: "Phương pháp luyện tập phỏng vấn kỹ thuật hiệu quả",
-    excerpt: "Những phương pháp và chiến lược giúp bạn chuẩn bị tốt nhất cho các cuộc phỏng vấn kỹ thuật trong ngành IT...",
+    title: "Effective Methods for Technical Interview Preparation",
+    excerpt: "Strategies and approaches to help you best prepare for technical interviews in the IT industry...",
     image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
     category: "tips",
-    author: "Trần Hằng",
-    date: "20/04/2025",
-    readTime: "8 phút",
+    author: "Hannah Smith",
+    date: "04/20/2025",
+    readTime: "8 min",
     tags: ["Interview", "Career Tips", "Technical Interview"]
   },
   {
     id: 3,
-    title: "Xu hướng công nghệ AI sẽ thay đổi thị trường việc làm năm 2025",
-    excerpt: "Phân tích về những công nghệ AI mới nhất và tác động của chúng đến thị trường lao động trong năm 2025...",
+    title: "AI Technology Trends Reshaping the Job Market in 2025",
+    excerpt: "Analysis of the newest AI technologies and their impact on the labor market in 2025...",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e",
     category: "tech",
-    author: "Lê Thành",
-    date: "18/04/2025",
-    readTime: "10 phút",
+    author: "Thomas Lee",
+    date: "04/18/2025",
+    readTime: "10 min",
     tags: ["AI", "Technology", "Future of Work"]
   },
   {
     id: 4,
-    title: "Cách xây dựng portfolio ấn tượng cho Developer",
-    excerpt: "Những bí quyết giúp bạn tạo ra một portfolio nổi bật, thu hút nhà tuyển dụng và khẳng định năng lực bản thân...",
+    title: "Building an Impressive Developer Portfolio",
+    excerpt: "Tips for creating a standout portfolio that attracts employers and showcases your abilities...",
     image: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7",
     category: "career",
-    author: "Phạm Linh",
-    date: "15/04/2025",
-    readTime: "7 phút",
+    author: "Lily Parker",
+    date: "04/15/2025",
+    readTime: "7 min",
     tags: ["Portfolio", "Career Development", "Web Development"]
   },
   {
     id: 5,
-    title: "So sánh mức lương IT giữa các thành phố lớn tại Việt Nam năm 2025",
-    excerpt: "Phân tích chi tiết về sự chênh lệch mức lương IT giữa Hà Nội, TP.HCM, Đà Nẵng và các thành phố khác...",
+    title: "IT Salary Comparison Across Major Cities in 2025",
+    excerpt: "Detailed analysis of IT salary differences between major cities and regions...",
     image: "https://images.unsplash.com/photo-1579621970588-a35d0e7ab9b6",
     category: "insight",
-    author: "Hoàng Minh",
-    date: "12/04/2025",
-    readTime: "6 phút",
-    tags: ["Salary", "IT Market", "Vietnam"]
+    author: "Mark Wilson",
+    date: "04/12/2025",
+    readTime: "6 min",
+    tags: ["Salary", "IT Market", "Regional Comparison"]
   },
   {
     id: 6,
-    title: "5 ngôn ngữ lập trình được săn đón nhất năm 2025",
-    excerpt: "Những ngôn ngữ lập trình đang được các nhà tuyển dụng săn đón nhiều nhất và lý do bạn nên học chúng...",
+    title: "5 Most In-Demand Programming Languages in 2025",
+    excerpt: "The programming languages most sought after by employers and why you should learn them...",
     image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4",
     category: "tech",
-    author: "Đặng Tùng",
-    date: "10/04/2025",
-    readTime: "9 phút",
+    author: "Daniel Wright",
+    date: "04/10/2025",
+    readTime: "9 min",
     tags: ["Programming Languages", "Tech Trends", "Coding"]
   }
 ];
@@ -81,13 +82,13 @@ const blogPosts = [
 // Featured post data
 const featuredPost = {
   id: 7,
-  title: "Làm thế nào để chuyển đổi sự nghiệp sang ngành IT thành công",
-  excerpt: "Những bước đi cụ thể giúp bạn chuyển đổi từ ngành khác sang IT một cách suôn sẻ, từ việc học kỹ năng mới đến tìm cơ hội việc làm phù hợp...",
+  title: "How to Successfully Transition Your Career into IT",
+  excerpt: "Specific steps to help you smoothly transition from another field to IT, from learning new skills to finding suitable job opportunities...",
   image: "https://images.unsplash.com/photo-1516321165247-4aa89a48be28",
   category: "career",
-  author: "Vũ Thảo",
-  date: "25/04/2025",
-  readTime: "12 phút",
+  author: "Victoria Chen",
+  date: "04/25/2025",
+  readTime: "12 min",
   tags: ["Career Change", "IT Industry", "Learning Path"]
 };
 
@@ -107,9 +108,9 @@ const Blog = () => {
       <main className="flex-grow py-10 px-4 bg-gray-50">
         <div className="container mx-auto max-w-7xl">
           <div className="text-center mb-10 animate-fade-in">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Blog IT Career</h1>
+            <h1 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">IT Career Blog</h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Khám phá các bài viết về nghề nghiệp, kỹ năng phỏng vấn, và xu hướng công nghệ mới nhất trong ngành IT
+              Explore articles about careers, interview skills, and the latest technology trends in the IT industry
             </p>
             
             <form onSubmit={handleSearch} className="mt-8 max-w-xl mx-auto relative">
@@ -117,7 +118,7 @@ const Blog = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 <Input
                   type="search"
-                  placeholder="Tìm kiếm bài viết..."
+                  placeholder="Search articles..."
                   className="pl-10 pr-20 py-6 border-himlam-200 focus:border-himlam-400"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
@@ -126,7 +127,7 @@ const Blog = () => {
                   type="submit" 
                   className="absolute right-1.5 top-1/2 transform -translate-y-1/2 bg-himlam-500 hover:bg-himlam-600"
                 >
-                  Tìm kiếm
+                  Search
                 </Button>
               </div>
             </form>
@@ -136,11 +137,11 @@ const Blog = () => {
           <Tabs defaultValue="all" className="mb-12">
             <div className="flex justify-center">
               <TabsList className="bg-gray-100">
-                <TabsTrigger value="all">Tất cả</TabsTrigger>
-                <TabsTrigger value="career">Nghề nghiệp</TabsTrigger>
-                <TabsTrigger value="tech">Công nghệ</TabsTrigger>
-                <TabsTrigger value="tips">Mẹo phỏng vấn</TabsTrigger>
-                <TabsTrigger value="insight">Phân tích thị trường</TabsTrigger>
+                <TabsTrigger value="all">All</TabsTrigger>
+                <TabsTrigger value="career">Careers</TabsTrigger>
+                <TabsTrigger value="tech">Technology</TabsTrigger>
+                <TabsTrigger value="tips">Interview Tips</TabsTrigger>
+                <TabsTrigger value="insight">Market Analysis</TabsTrigger>
               </TabsList>
             </div>
             
@@ -149,7 +150,7 @@ const Blog = () => {
               <div className="mb-12">
                 <h2 className="text-2xl font-bold mb-6 flex items-center">
                   <BookOpen className="mr-2 text-himlam-500" size={24} />
-                  Bài viết nổi bật
+                  Featured Article
                 </h2>
                 
                 <div className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -164,10 +165,10 @@ const Blog = () => {
                     <div className="md:w-1/2 p-6 md:p-8">
                       <div className="flex items-center text-sm mb-2">
                         <span className="bg-himlam-100 text-himlam-700 rounded-full px-3 py-1">
-                          {featuredPost.category === "career" ? "Nghề nghiệp" :
-                           featuredPost.category === "tech" ? "Công nghệ" :
-                           featuredPost.category === "tips" ? "Mẹo phỏng vấn" :
-                           "Phân tích thị trường"}
+                          {featuredPost.category === "career" ? "Career" :
+                           featuredPost.category === "tech" ? "Technology" :
+                           featuredPost.category === "tips" ? "Interview Tips" :
+                           "Market Analysis"}
                         </span>
                       </div>
                       
@@ -193,7 +194,7 @@ const Blog = () => {
                       
                       <Button asChild className="bg-himlam-500 hover:bg-himlam-600">
                         <Link to={`/blog/${featuredPost.id}`}>
-                          Đọc tiếp
+                          Read More
                         </Link>
                       </Button>
                     </div>
@@ -204,7 +205,7 @@ const Blog = () => {
               {/* All posts */}
               <h2 className="text-2xl font-bold mb-6 flex items-center">
                 <BookOpen className="mr-2 text-himlam-500" size={24} />
-                Bài viết mới nhất
+                Latest Articles
               </h2>
               
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -220,10 +221,10 @@ const Blog = () => {
                     <CardHeader className="pb-2">
                       <div className="flex items-center text-sm mb-2">
                         <span className="bg-himlam-100 text-himlam-700 rounded-full px-3 py-1">
-                          {post.category === "career" ? "Nghề nghiệp" :
-                           post.category === "tech" ? "Công nghệ" :
-                           post.category === "tips" ? "Mẹo phỏng vấn" :
-                           "Phân tích thị trường"}
+                          {post.category === "career" ? "Career" :
+                           post.category === "tech" ? "Technology" :
+                           post.category === "tips" ? "Interview Tips" :
+                           "Market Analysis"}
                         </span>
                       </div>
                       <CardTitle className="text-xl">
@@ -247,7 +248,7 @@ const Blog = () => {
                     <CardFooter className="pt-0">
                       <Button asChild variant="ghost" className="text-himlam-600 p-0 hover:text-himlam-700 hover:bg-transparent">
                         <Link to={`/blog/${post.id}`}>
-                          Đọc tiếp
+                          Read More
                         </Link>
                       </Button>
                     </CardFooter>
@@ -257,7 +258,7 @@ const Blog = () => {
               
               <div className="mt-10 text-center">
                 <Button variant="outline" className="border-himlam-300 hover:border-himlam-500">
-                  Xem thêm bài viết
+                  View More Articles
                 </Button>
               </div>
             </TabsContent>
@@ -280,10 +281,10 @@ const Blog = () => {
                         <CardHeader className="pb-2">
                           <div className="flex items-center text-sm mb-2">
                             <span className="bg-himlam-100 text-himlam-700 rounded-full px-3 py-1">
-                              {category === "career" ? "Nghề nghiệp" :
-                               category === "tech" ? "Công nghệ" :
-                               category === "tips" ? "Mẹo phỏng vấn" :
-                               "Phân tích thị trường"}
+                              {category === "career" ? "Career" :
+                               category === "tech" ? "Technology" :
+                               category === "tips" ? "Interview Tips" :
+                               "Market Analysis"}
                             </span>
                           </div>
                           <CardTitle className="text-xl">
@@ -307,7 +308,7 @@ const Blog = () => {
                         <CardFooter className="pt-0">
                           <Button asChild variant="ghost" className="text-himlam-600 p-0 hover:text-himlam-700 hover:bg-transparent">
                             <Link to={`/blog/${post.id}`}>
-                              Đọc tiếp
+                              Read More
                             </Link>
                           </Button>
                         </CardFooter>
@@ -321,20 +322,20 @@ const Blog = () => {
           {/* Subscribe section */}
           <div className="bg-himlam-50 border border-himlam-100 rounded-xl p-8 mt-12">
             <div className="text-center max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-gray-800 mb-4">Đăng ký nhận bài viết mới</h3>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Subscribe to New Articles</h3>
               <p className="text-gray-600 mb-6">
-                Nhận thông báo khi có bài viết mới về nghề nghiệp, kỹ thuật và cơ hội việc làm
+                Receive notifications about new articles on careers, technology, and job opportunities
               </p>
               
               <form className="flex gap-4 max-w-md mx-auto">
                 <Input
                   type="email"
-                  placeholder="Email của bạn"
+                  placeholder="Your email"
                   className="flex-grow"
                   required
                 />
                 <Button type="submit" className="bg-himlam-500 hover:bg-himlam-600">
-                  Đăng ký
+                  Subscribe
                 </Button>
               </form>
             </div>

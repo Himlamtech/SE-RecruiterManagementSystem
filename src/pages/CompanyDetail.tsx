@@ -25,124 +25,124 @@ const companyDetails = {
   id: 1,
   name: "Google Vietnam",
   logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2008px-Google_%22G%22_Logo.svg.png",
-  coverImage: "https://images.unsplash.com/photo-1496096265110-f83ad7f96608",
+  coverImage: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d",
   industry: "Technology",
-  location: "Quận 1, Hồ Chí Minh",
+  location: "District 1, Ho Chi Minh City",
   size: "1000-5000",
   website: "https://careers.google.com/locations/vietnam/",
   phone: "+84 28 6288 6888",
   email: "careers-vietnam@google.com",
   founded: 2012,
-  description: "Google là công ty công nghệ đa quốc gia của Mỹ, chuyên về các dịch vụ và sản phẩm liên quan đến Internet, bao gồm công nghệ quảng cáo trực tuyến, công cụ tìm kiếm, điện toán đám mây, phần mềm và phần cứng.",
-  aboutUs: `Google Vietnam được thành lập vào năm 2012 và đã nhanh chóng phát triển thành một trong những văn phòng quan trọng của Google tại khu vực Đông Nam Á. Văn phòng của chúng tôi tại Thành phố Hồ Chí Minh là nơi làm việc của các nhóm kỹ sư, chuyên gia tiếp thị, và các nhân viên hỗ trợ kinh doanh.
+  description: "Google is an American multinational technology company specializing in Internet-related services and products, including online advertising technologies, search engine, cloud computing, software, and hardware.",
+  aboutUs: `Google Vietnam was established in 2012 and has quickly grown to become one of Google's important offices in Southeast Asia. Our office in Ho Chi Minh City is home to teams of engineers, marketing specialists, and business support staff.
   
-  Tại Google Vietnam, chúng tôi cam kết mang đến môi trường làm việc đa dạng, hòa nhập và sáng tạo. Chúng tôi khuyến khích tư duy đổi mới và cung cấp cơ hội cho mọi nhân viên được phát triển và đóng góp vào các dự án có tác động toàn cầu.
+  At Google Vietnam, we are committed to providing a diverse, inclusive, and creative work environment. We encourage innovative thinking and provide opportunities for every employee to develop and contribute to projects with global impact.
   
-  Đội ngũ của chúng tôi đang không ngừng phát triển, và chúng tôi luôn tìm kiếm những tài năng mới để cùng chúng tôi giải quyết những thách thức công nghệ phức tạp và phát triển các giải pháp sáng tạo cho người dùng toàn cầu.`,
+  Our team is continuously growing, and we are always looking for new talent to join us in solving complex technological challenges and developing innovative solutions for users worldwide.`,
   benefits: [
-    "Chế độ bảo hiểm sức khỏe toàn diện cho nhân viên và gia đình",
-    "Chương trình lương thưởng cạnh tranh",
-    "Chế độ nghỉ phép linh hoạt",
-    "Không gian làm việc hiện đại, sáng tạo",
-    "Các hoạt động team building thường xuyên",
-    "Cơ hội đào tạo và phát triển toàn cầu",
-    "Chương trình hỗ trợ học phí",
-    "Văn phòng với đầy đủ tiện nghi: phòng gym, khu vực giải trí, nhà ăn miễn phí"
+    "Comprehensive health insurance for employees and families",
+    "Competitive salary and bonus program",
+    "Flexible leave policy",
+    "Modern, creative workspace",
+    "Regular team building activities",
+    "Global training and development opportunities",
+    "Tuition assistance program",
+    "Office with full amenities: gym, recreation areas, free cafeteria"
   ],
-  culture: `Google Vietnam tự hào về văn hóa làm việc đề cao sự sáng tạo, tính cởi mở và tinh thần đổi mới. Chúng tôi tin tưởng vào việc trao quyền cho nhân viên để họ có thể tự do sáng tạo và đưa ra các ý tưởng mới.
+  culture: `Google Vietnam takes pride in a work culture that values creativity, openness, and innovation. We believe in empowering employees to freely create and bring new ideas to the table.
 
-  Văn hóa làm việc tại Google Vietnam được xây dựng dựa trên các giá trị cốt lõi:
-  - Tập trung vào người dùng, mọi thứ khác sẽ theo sau
-  - Tốt nhất là làm một việc thật xuất sắc
-  - Nhanh vẫn hơn chậm
-  - Dân chủ trên web là điều có thể
-  - Bạn không cần phải ở văn phòng để có câu trả lời
-  - Có thể kiếm tiền mà không làm điều xấu
-  - Luôn có nhiều thông tin hơn nữa
-  - Nhu cầu thông tin vượt qua mọi biên giới
-  - Bạn có thể nghiêm túc mà không cần mặc vest
-  - Làm tốt thôi chưa đủ
+  The work culture at Google Vietnam is built on core values:
+  - Focus on the user and all else will follow
+  - It's best to do one thing really well
+  - Fast is better than slow
+  - Democracy on the web works
+  - You don't need to be at your desk to need an answer
+  - You can make money without doing evil
+  - There's always more information out there
+  - The need for information crosses all borders
+  - You can be serious without a suit
+  - Great just isn't good enough
 
-  Chúng tôi mong muốn tạo ra một môi trường làm việc nơi mọi người đều cảm thấy được tôn trọng, được lắng nghe và có cơ hội để phát triển.`,
+  We strive to create a work environment where everyone feels respected, heard, and has opportunities to grow.`,
   jobOpenings: [
     {
       id: 101,
       title: "Senior Software Engineer",
-      location: "Hồ Chí Minh",
+      location: "Ho Chi Minh City",
       type: "Full-time",
-      postedDate: "21/04/2025",
-      salary: "Thỏa thuận"
+      postedDate: "04/21/2025",
+      salary: "Negotiable"
     },
     {
       id: 102,
       title: "Product Manager",
-      location: "Hồ Chí Minh",
+      location: "Ho Chi Minh City",
       type: "Full-time",
-      postedDate: "20/04/2025",
-      salary: "Thỏa thuận"
+      postedDate: "04/20/2025",
+      salary: "Negotiable"
     },
     {
       id: 103,
       title: "Data Scientist",
-      location: "Hồ Chí Minh",
+      location: "Ho Chi Minh City",
       type: "Full-time",
-      postedDate: "19/04/2025",
-      salary: "Thỏa thuận"
+      postedDate: "04/19/2025",
+      salary: "Negotiable"
     },
     {
       id: 104,
       title: "UX/UI Designer",
-      location: "Hồ Chí Minh",
+      location: "Ho Chi Minh City",
       type: "Full-time",
-      postedDate: "17/04/2025",
-      salary: "Thỏa thuận"
+      postedDate: "04/17/2025",
+      salary: "Negotiable"
     },
     {
       id: 105,
       title: "Technical Program Manager",
-      location: "Hồ Chí Minh",
+      location: "Ho Chi Minh City",
       type: "Full-time",
-      postedDate: "15/04/2025",
-      salary: "Thỏa thuận"
+      postedDate: "04/15/2025",
+      salary: "Negotiable"
     }
   ],
   reviews: [
     {
       id: 201,
-      author: "Nguyễn V.",
+      author: "Nguyen V.",
       position: "Software Engineer",
       rating: 5,
-      date: "15/03/2025",
-      pros: "Môi trường làm việc tuyệt vời, cơ hội học hỏi và phát triển rất nhiều, đồng nghiệp thân thiện và luôn sẵn sàng giúp đỡ.",
-      cons: "Áp lực công việc đôi khi khá cao, cần có khả năng quản lý thời gian tốt.",
-      advice: "Hãy chuẩn bị tốt cho quá trình phỏng vấn và đừng ngại đặt câu hỏi khi cần giúp đỡ."
+      date: "03/15/2025",
+      pros: "Excellent work environment, many learning and development opportunities, friendly colleagues who are always ready to help.",
+      cons: "Work pressure can be quite high at times, requires good time management skills.",
+      advice: "Prepare well for the interview process and don't hesitate to ask questions when you need help."
     },
     {
       id: 202,
-      author: "Trần T.",
+      author: "Tran T.",
       position: "Product Manager",
       rating: 4,
       date: "02/02/2025",
-      pros: "Được làm việc với những người giỏi nhất trong ngành, chế độ đãi ngộ tốt, văn hóa công ty rất tuyệt vời.",
-      cons: "Đôi khi cảm thấy quá nhiều cuộc họp, quy trình phê duyệt có thể mất thời gian.",
-      advice: "Nắm vững kỹ năng giao tiếp và xây dựng mối quan hệ tốt với đồng nghiệp."
+      pros: "Working with the best in the industry, great benefits, excellent company culture.",
+      cons: "Sometimes feels like too many meetings, approval processes can be time-consuming.",
+      advice: "Master communication skills and build good relationships with colleagues."
     },
     {
       id: 203,
-      author: "Lê H.",
+      author: "Le H.",
       position: "Data Analyst",
       rating: 5,
-      date: "10/01/2025",
-      pros: "Cơ sở vật chất tuyệt vời, cơ hội học hỏi không giới hạn, chế độ phúc lợi rất tốt.",
-      cons: "Có thể gặp khó khăn khi cân bằng công việc và cuộc sống cá nhân trong một số dự án.",
-      advice: "Tận dụng tối đa các cơ hội học tập và phát triển mà công ty cung cấp."
+      date: "01/10/2025",
+      pros: "Excellent facilities, unlimited learning opportunities, great benefits package.",
+      cons: "Can be challenging to balance work and personal life in some projects.",
+      advice: "Take full advantage of the learning and development opportunities the company provides."
     }
   ],
   rating: 4.8,
   photos: [
+    "https://images.unsplash.com/photo-1497366754035-f200968a6e72",
     "https://images.unsplash.com/photo-1497215842964-222b430dc094",
-    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3",
-    "https://images.unsplash.com/photo-1606857521015-7f9fcf423740"
+    "https://images.unsplash.com/photo-1516321318423-f06f85e504b3"
   ]
 };
 
@@ -195,11 +195,11 @@ const CompanyDetail = () => {
                 </div>
                 <div className="flex items-center">
                   <Users className="mr-2 h-5 w-5 text-himlam-500" />
-                  <span>{companyDetails.size} nhân viên</span>
+                  <span>{companyDetails.size} employees</span>
                 </div>
                 <div className="flex items-center">
                   <Calendar className="mr-2 h-5 w-5 text-himlam-500" />
-                  <span>Thành lập: {companyDetails.founded}</span>
+                  <span>Founded: {companyDetails.founded}</span>
                 </div>
               </div>
               
@@ -232,7 +232,7 @@ const CompanyDetail = () => {
           
           {/* Navigation path */}
           <div className="flex items-center text-sm text-gray-500 mb-6">
-            <Link to="/companies" className="hover:text-himlam-600">Công ty</Link>
+            <Link to="/companies" className="hover:text-himlam-600">Companies</Link>
             <ChevronRight className="h-4 w-4 mx-2" />
             <span>{companyDetails.name}</span>
           </div>
@@ -240,17 +240,17 @@ const CompanyDetail = () => {
           {/* Tabs for different sections */}
           <Tabs defaultValue="about" className="mb-12">
             <TabsList className="bg-white shadow-sm mb-6">
-              <TabsTrigger value="about">Giới thiệu</TabsTrigger>
-              <TabsTrigger value="jobs">Việc làm ({companyDetails.jobOpenings.length})</TabsTrigger>
-              <TabsTrigger value="reviews">Đánh giá ({companyDetails.reviews.length})</TabsTrigger>
-              <TabsTrigger value="photos">Hình ảnh</TabsTrigger>
+              <TabsTrigger value="about">About</TabsTrigger>
+              <TabsTrigger value="jobs">Jobs ({companyDetails.jobOpenings.length})</TabsTrigger>
+              <TabsTrigger value="reviews">Reviews ({companyDetails.reviews.length})</TabsTrigger>
+              <TabsTrigger value="photos">Photos</TabsTrigger>
             </TabsList>
             
             <TabsContent value="about" className="animate-fade-in">
               <div className="grid md:grid-cols-3 gap-6">
                 <div className="md:col-span-2">
                   <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
-                    <h2 className="text-2xl font-bold mb-4">Về {companyDetails.name}</h2>
+                    <h2 className="text-2xl font-bold mb-4">About {companyDetails.name}</h2>
                     <div className="prose max-w-none text-gray-600">
                       {companyDetails.aboutUs.split("\n").map((paragraph, idx) => (
                         <p key={idx} className="mb-4">{paragraph}</p>
@@ -259,7 +259,7 @@ const CompanyDetail = () => {
                   </div>
                   
                   <div className="bg-white rounded-lg shadow-sm p-6">
-                    <h2 className="text-2xl font-bold mb-4">Văn hóa công ty</h2>
+                    <h2 className="text-2xl font-bold mb-4">Company Culture</h2>
                     <div className="prose max-w-none text-gray-600">
                       {companyDetails.culture.split("\n").map((paragraph, idx) => (
                         <p key={idx} className="mb-4">{paragraph}</p>
@@ -270,7 +270,7 @@ const CompanyDetail = () => {
                 
                 <div>
                   <div className="bg-white rounded-lg shadow-sm p-6 sticky top-6">
-                    <h3 className="text-xl font-bold mb-4">Phúc lợi</h3>
+                    <h3 className="text-xl font-bold mb-4">Benefits</h3>
                     <ul className="space-y-3">
                       {companyDetails.benefits.map((benefit, idx) => (
                         <li key={idx} className="flex items-start">
@@ -288,7 +288,7 @@ const CompanyDetail = () => {
             
             <TabsContent value="jobs" className="animate-fade-in">
               <div className="bg-white rounded-lg shadow-sm p-6">
-                <h2 className="text-2xl font-bold mb-6">Vị trí tuyển dụng ({companyDetails.jobOpenings.length})</h2>
+                <h2 className="text-2xl font-bold mb-6">Open Positions ({companyDetails.jobOpenings.length})</h2>
                 
                 <div className="space-y-4">
                   {companyDetails.jobOpenings.map(job => (
@@ -309,7 +309,7 @@ const CompanyDetail = () => {
                             </div>
                             <div className="flex items-center">
                               <Calendar className="mr-1 h-4 w-4 text-himlam-500" />
-                              <span>Ngày đăng: {job.postedDate}</span>
+                              <span>Posted: {job.postedDate}</span>
                             </div>
                           </div>
                           <div className="mt-2">
@@ -322,7 +322,7 @@ const CompanyDetail = () => {
                         <div className="flex items-center mt-4 md:mt-0">
                           <Button asChild className="bg-himlam-500 hover:bg-himlam-600">
                             <Link to={`/jobs/${job.id}`}>
-                              Ứng tuyển
+                              Apply Now
                             </Link>
                           </Button>
                         </div>
@@ -336,10 +336,10 @@ const CompanyDetail = () => {
             <TabsContent value="reviews" className="animate-fade-in">
               <div className="bg-white rounded-lg shadow-sm p-6">
                 <div className="md:flex md:justify-between items-center mb-6">
-                  <h2 className="text-2xl font-bold">Đánh giá từ nhân viên</h2>
+                  <h2 className="text-2xl font-bold">Employee Reviews</h2>
                   <div className="mt-4 md:mt-0">
                     <Button className="bg-himlam-500 hover:bg-himlam-600">
-                      Viết đánh giá
+                      Write a Review
                     </Button>
                   </div>
                 </div>
@@ -355,26 +355,26 @@ const CompanyDetail = () => {
                         />
                       ))}
                     </div>
-                    <div className="mt-2 text-gray-600">Dựa trên {companyDetails.reviews.length} đánh giá</div>
+                    <div className="mt-2 text-gray-600">Based on {companyDetails.reviews.length} reviews</div>
                   </div>
                   
                   <div className="md:col-span-3">
                     <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                       <div className="text-center p-4 bg-gray-50 rounded-lg">
                         <div className="text-xl font-bold text-gray-800">4.7</div>
-                        <div className="text-sm text-gray-600">Môi trường làm việc</div>
+                        <div className="text-sm text-gray-600">Work Environment</div>
                       </div>
                       <div className="text-center p-4 bg-gray-50 rounded-lg">
                         <div className="text-xl font-bold text-gray-800">4.9</div>
-                        <div className="text-sm text-gray-600">Phúc lợi</div>
+                        <div className="text-sm text-gray-600">Benefits</div>
                       </div>
                       <div className="text-center p-4 bg-gray-50 rounded-lg">
                         <div className="text-xl font-bold text-gray-800">4.6</div>
-                        <div className="text-sm text-gray-600">Cân bằng công việc</div>
+                        <div className="text-sm text-gray-600">Work-Life Balance</div>
                       </div>
                       <div className="text-center p-4 bg-gray-50 rounded-lg">
                         <div className="text-xl font-bold text-gray-800">4.8</div>
-                        <div className="text-sm text-gray-600">Cơ hội phát triển</div>
+                        <div className="text-sm text-gray-600">Growth Opportunities</div>
                       </div>
                     </div>
                   </div>
@@ -407,15 +407,15 @@ const CompanyDetail = () => {
                       
                       <div className="space-y-3">
                         <div>
-                          <div className="font-medium text-gray-800">Điểm tích cực</div>
+                          <div className="font-medium text-gray-800">Pros</div>
                           <p className="text-gray-600">{review.pros}</p>
                         </div>
                         <div>
-                          <div className="font-medium text-gray-800">Điểm hạn chế</div>
+                          <div className="font-medium text-gray-800">Cons</div>
                           <p className="text-gray-600">{review.cons}</p>
                         </div>
                         <div>
-                          <div className="font-medium text-gray-800">Lời khuyên</div>
+                          <div className="font-medium text-gray-800">Advice</div>
                           <p className="text-gray-600">{review.advice}</p>
                         </div>
                       </div>
@@ -427,7 +427,7 @@ const CompanyDetail = () => {
             
             <TabsContent value="photos" className="animate-fade-in">
               <div className="bg-white rounded-lg shadow-sm p-6">
-                <h2 className="text-2xl font-bold mb-6">Hình ảnh công ty</h2>
+                <h2 className="text-2xl font-bold mb-6">Company Photos</h2>
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                   {companyDetails.photos.map((photo, idx) => (
                     <div key={idx} className="overflow-hidden rounded-lg shadow-sm hover:shadow-md transition-shadow">

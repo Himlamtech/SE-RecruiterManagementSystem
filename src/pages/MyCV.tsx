@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
@@ -9,13 +9,93 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { FileText, Plus, Edit, Download, Trash2 } from "lucide-react";
+import { toast } from "sonner";
+
+// Mock admin credentials
+const ADMIN_USER = "admin";
+const ADMIN_PASSWORD = "admin";
 
 const MyCV = () => {
   const [activeTab, setActiveTab] = useState("create");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [savedCVs, setSavedCVs] = useState([
     { id: 1, name: "Main CV", lastUpdated: "04/20/2025", template: "Modern" },
     { id: 2, name: "English CV", lastUpdated: "04/15/2025", template: "Minimal" },
   ]);
+
+  // Check if user is already authenticated
+  useEffect(() => {
+    const authStatus = localStorage.getItem("isAuthenticated");
+    if (authStatus === "true") {
+      setIsAuthenticated(true);
+    }
+  }, []);
+
+  // Default CV template data
+  const defaultCV = {
+    personalInfo: {
+      firstName: "John",
+      lastName: "Doe",
+      jobTitle: "Frontend Developer",
+      email: "john.doe@example.com",
+      phone: "(123) 456-7890",
+      address: "New York, NY, USA",
+      summary: "Experienced frontend developer with 5+ years of experience in building responsive web applications using React, TypeScript and modern CSS frameworks."
+    },
+    workExperience: [
+      {
+        company: "Tech Solutions Inc.",
+        position: "Senior Frontend Developer",
+        startDate: "2022-01-01",
+        endDate: "2025-01-01",
+        description: "Led the development of the company's main product, improving performance by 40%. Mentored junior developers and implemented best practices."
+      },
+      {
+        company: "Web Innovations",
+        position: "Frontend Developer",
+        startDate: "2020-01-01",
+        endDate: "2021-12-31",
+        description: "Developed and maintained multiple client websites. Implemented responsive designs and ensured cross-browser compatibility."
+      }
+    ],
+    education: {
+      school: "University of Technology",
+      degree: "Bachelor of Computer Science",
+      startYear: "2016",
+      endYear: "2020"
+    },
+    skills: "JavaScript, React, TypeScript, HTML5, CSS3, Tailwind CSS, Git, Jest, RESTful APIs"
+  };
+
+  // Function to apply default CV template
+  const applyDefaultCV = () => {
+    // First check if user is authenticated
+    if (!isAuthenticated) {
+      // Ask for credentials
+      const username = prompt("Please enter admin username:");
+      const password = prompt("Please enter admin password:");
+      
+      if (username === ADMIN_USER && password === ADMIN_PASSWORD) {
+        // Store authentication status
+        localStorage.setItem("isAuthenticated", "true");
+        setIsAuthenticated(true);
+        
+        // Apply default CV
+        setActiveTab("create");
+        toast.success("Default CV template applied");
+        
+        // Here we would populate the form fields
+        // In a real app, you'd use form state management and set the values
+      } else {
+        toast.error("Invalid credentials");
+      }
+    } else {
+      // User is already authenticated
+      setActiveTab("create");
+      toast.success("Default CV template applied");
+      // Here we would populate the form fields
+    }
+  };
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -28,6 +108,15 @@ const MyCV = () => {
             <p className="text-lg text-gray-600">
               Create and manage professional CVs to increase your chances of successful job applications
             </p>
+          </div>
+          
+          <div className="flex justify-center mb-8">
+            <Button 
+              onClick={applyDefaultCV} 
+              className="bg-purple-500 hover:bg-purple-600 text-white mr-4"
+            >
+              Default CV
+            </Button>
           </div>
           
           <Tabs 
@@ -59,37 +148,41 @@ const MyCV = () => {
                       <div className="grid grid-cols-2 gap-4">
                         <div className="space-y-2">
                           <Label htmlFor="first-name">First Name</Label>
-                          <Input id="first-name" placeholder="John" />
+                          <Input id="first-name" placeholder="John" defaultValue={isAuthenticated ? defaultCV.personalInfo.firstName : ""} />
                         </div>
                         <div className="space-y-2">
                           <Label htmlFor="last-name">Last Name</Label>
-                          <Input id="last-name" placeholder="Doe" />
+                          <Input id="last-name" placeholder="Doe" defaultValue={isAuthenticated ? defaultCV.personalInfo.lastName : ""} />
                         </div>
                       </div>
                       
                       <div className="space-y-2">
                         <Label htmlFor="job-title">Job Title</Label>
-                        <Input id="job-title" placeholder="Frontend Developer" />
+                        <Input id="job-title" placeholder="Frontend Developer" defaultValue={isAuthenticated ? defaultCV.personalInfo.jobTitle : ""} />
                       </div>
                       
                       <div className="space-y-2">
                         <Label htmlFor="email">Email</Label>
-                        <Input id="email" type="email" placeholder="example@gmail.com" />
+                        <Input id="email" type="email" placeholder="example@gmail.com" defaultValue={isAuthenticated ? defaultCV.personalInfo.email : ""} />
                       </div>
                       
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone</Label>
-                        <Input id="phone" placeholder="(123) 456-7890" />
+                        <Input id="phone" placeholder="(123) 456-7890" defaultValue={isAuthenticated ? defaultCV.personalInfo.phone : ""} />
                       </div>
                       
                       <div className="space-y-2">
                         <Label htmlFor="address">Address</Label>
-                        <Input id="address" placeholder="City, State, Country" />
+                        <Input id="address" placeholder="City, State, Country" defaultValue={isAuthenticated ? defaultCV.personalInfo.address : ""} />
                       </div>
                       
                       <div className="space-y-2">
                         <Label htmlFor="summary">Professional Summary</Label>
-                        <Textarea id="summary" placeholder="Brief introduction about yourself and your experience..." />
+                        <Textarea 
+                          id="summary" 
+                          placeholder="Brief introduction about yourself and your experience..." 
+                          defaultValue={isAuthenticated ? defaultCV.personalInfo.summary : ""}
+                        />
                       </div>
                     </CardContent>
                   </Card>
@@ -104,30 +197,101 @@ const MyCV = () => {
                         <div className="grid grid-cols-2 gap-4">
                           <div className="space-y-2">
                             <Label htmlFor="company">Company</Label>
-                            <Input id="company" placeholder="Company name" />
+                            <Input 
+                              id="company" 
+                              placeholder="Company name" 
+                              defaultValue={isAuthenticated ? defaultCV.workExperience[0].company : ""}
+                            />
                           </div>
                           <div className="space-y-2">
                             <Label htmlFor="position">Position</Label>
-                            <Input id="position" placeholder="Your position" />
+                            <Input 
+                              id="position" 
+                              placeholder="Your position" 
+                              defaultValue={isAuthenticated ? defaultCV.workExperience[0].position : ""}
+                            />
                           </div>
                         </div>
                         
                         <div className="grid grid-cols-2 gap-4 mt-4">
                           <div className="space-y-2">
                             <Label htmlFor="start-date">Start Date</Label>
-                            <Input id="start-date" type="date" />
+                            <Input 
+                              id="start-date" 
+                              type="date" 
+                              defaultValue={isAuthenticated ? defaultCV.workExperience[0].startDate : ""}
+                            />
                           </div>
                           <div className="space-y-2">
                             <Label htmlFor="end-date">End Date</Label>
-                            <Input id="end-date" type="date" />
+                            <Input 
+                              id="end-date" 
+                              type="date"
+                              defaultValue={isAuthenticated ? defaultCV.workExperience[0].endDate : ""}
+                            />
                           </div>
                         </div>
                         
                         <div className="space-y-2 mt-4">
                           <Label htmlFor="description">Job Description</Label>
-                          <Textarea id="description" placeholder="Describe your responsibilities and achievements..." />
+                          <Textarea 
+                            id="description" 
+                            placeholder="Describe your responsibilities and achievements..."
+                            defaultValue={isAuthenticated ? defaultCV.workExperience[0].description : ""}
+                          />
                         </div>
                       </div>
+                      
+                      {isAuthenticated && (
+                        <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 mb-4">
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                              <Label htmlFor="company2">Company</Label>
+                              <Input 
+                                id="company2" 
+                                placeholder="Company name" 
+                                defaultValue={defaultCV.workExperience[1].company}
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label htmlFor="position2">Position</Label>
+                              <Input 
+                                id="position2" 
+                                placeholder="Your position" 
+                                defaultValue={defaultCV.workExperience[1].position}
+                              />
+                            </div>
+                          </div>
+                          
+                          <div className="grid grid-cols-2 gap-4 mt-4">
+                            <div className="space-y-2">
+                              <Label htmlFor="start-date2">Start Date</Label>
+                              <Input 
+                                id="start-date2" 
+                                type="date" 
+                                defaultValue={defaultCV.workExperience[1].startDate}
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label htmlFor="end-date2">End Date</Label>
+                              <Input 
+                                id="end-date2" 
+                                type="date"
+                                defaultValue={defaultCV.workExperience[1].endDate}
+                              />
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-2 mt-4">
+                            <Label htmlFor="description2">Job Description</Label>
+                            <Textarea 
+                              id="description2" 
+                              placeholder="Describe your responsibilities and achievements..."
+                              defaultValue={defaultCV.workExperience[1].description}
+                            />
+                          </div>
+                        </div>
+                      )}
                       
                       <Button className="w-full flex items-center justify-center border-himlam-300 hover:border-himlam-500" variant="outline">
                         <Plus className="h-4 w-4 mr-2" /> Add Experience
@@ -144,22 +308,40 @@ const MyCV = () => {
                       <div className="bg-gray-50 p-4 rounded-lg border border-gray-100 mb-4">
                         <div className="space-y-2">
                           <Label htmlFor="school">School/University</Label>
-                          <Input id="school" placeholder="School name" />
+                          <Input 
+                            id="school" 
+                            placeholder="School name" 
+                            defaultValue={isAuthenticated ? defaultCV.education.school : ""}
+                          />
                         </div>
                         
                         <div className="space-y-2 mt-4">
                           <Label htmlFor="degree">Degree / Major</Label>
-                          <Input id="degree" placeholder="Bachelor of Computer Science" />
+                          <Input 
+                            id="degree" 
+                            placeholder="Bachelor of Computer Science" 
+                            defaultValue={isAuthenticated ? defaultCV.education.degree : ""}
+                          />
                         </div>
                         
                         <div className="grid grid-cols-2 gap-4 mt-4">
                           <div className="space-y-2">
                             <Label htmlFor="edu-start-date">Start Year</Label>
-                            <Input id="edu-start-date" type="number" placeholder="2018" />
+                            <Input 
+                              id="edu-start-date" 
+                              type="number" 
+                              placeholder="2018" 
+                              defaultValue={isAuthenticated ? defaultCV.education.startYear : ""}
+                            />
                           </div>
                           <div className="space-y-2">
                             <Label htmlFor="edu-end-date">End Year</Label>
-                            <Input id="edu-end-date" type="number" placeholder="2022" />
+                            <Input 
+                              id="edu-end-date" 
+                              type="number" 
+                              placeholder="2022" 
+                              defaultValue={isAuthenticated ? defaultCV.education.endYear : ""}
+                            />
                           </div>
                         </div>
                       </div>
@@ -178,7 +360,11 @@ const MyCV = () => {
                     <CardContent className="space-y-4">
                       <div className="space-y-2">
                         <Label htmlFor="skills">Skills (separated by commas)</Label>
-                        <Input id="skills" placeholder="JavaScript, React, Node.js, TypeScript, ..." />
+                        <Input 
+                          id="skills" 
+                          placeholder="JavaScript, React, Node.js, TypeScript, ..." 
+                          defaultValue={isAuthenticated ? defaultCV.skills : ""}
+                        />
                       </div>
                     </CardContent>
                   </Card>

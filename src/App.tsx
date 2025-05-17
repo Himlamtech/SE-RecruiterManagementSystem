@@ -11,6 +11,8 @@ import MyCV from "./pages/MyCV";
 import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Login from "./pages/Login";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 import Blog from "./pages/Blog";
 import Companies from "./pages/Companies";
 import CompanyDetail from "./pages/CompanyDetail";
@@ -35,6 +37,8 @@ const App = () => (
           <Route path="/my-cv" element={<MyCV />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/companies" element={<Companies />} />
           <Route path="/companies/:id" element={<CompanyDetail />} />
